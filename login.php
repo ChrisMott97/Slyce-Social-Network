@@ -19,7 +19,7 @@
             <input type="text" name="username" value=""></br>
             Password:</br>
             <input type="password" name="password" value=""></br>
-            <input type="button" name="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit">
         </fieldset>
         </form>
     </div>
