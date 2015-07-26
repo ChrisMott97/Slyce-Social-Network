@@ -12,7 +12,7 @@
         <p id="demo"><strong>Social Network</strong></p>
         </div>
     <div id="buttons">
-        <form id="login" method="post" action="#">
+        <form id="login" method="post" action="<?php echo htmlspecialchars("home.php");?>">
         <fieldset>
         <legend>Login:</legend>
             Username:</br>
@@ -23,6 +23,5 @@
         </fieldset>
         </form>
     </div>
-    <script src="myScript.js"></script>    
-    </body>
+    <script src="myScript.js"></script>
 </html>

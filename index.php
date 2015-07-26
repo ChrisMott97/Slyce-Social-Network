@@ -13,7 +13,7 @@
         </div>
     <div id="buttons">
         <ul>
-            <li><a href="login.html"><b>Login</b></a></li>
+            <li><a href="login.php"><b>Login</b></a></li>
             <li><a href="#"><b>Signup</b></a></li>
         </ul>
     </div>
