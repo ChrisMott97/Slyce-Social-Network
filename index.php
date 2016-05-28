@@ -9,7 +9,7 @@
     <body>
     <div class="background"></div>
     <div class="header">
-        <p id="demo"><strong>Social Network</strong></p>
+        <p id="demo"><strong>The Social Media Project</strong></p>
         </div>
     <div id="buttons">
         <ul>
