@@ -167,3 +167,10 @@ body {
     font-family: 'Poiret One', cursive;
     font-size: 100px
 }
+
+.allbtns {
+    font-family: 'Poiret One', cursive;
+}
+.allbtns:hover {
+    opacity:0.5;
+}

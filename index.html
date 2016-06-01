@@ -7,12 +7,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="./favicon.png">
 
-    <title>The Social Media Project</title>
+    <title>MiSlice</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="./style/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -22,7 +22,9 @@
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles for this template -->
-    <link href="./css/cover.css" rel="stylesheet">
+    <link href="./style/custom.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,49 +36,27 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
+<script>
+$(document).ready(function(){
+    $("h1").hide().fadeIn(3000);
+    $("h2").hide().delay(1500).fadeIn(3000);
+    $(".mastfoot").hide().delay(1500).fadeIn(3000);
+    });
+</script>
   <body>
+        <div class="container">
 
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">The Social Media Network</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">The Social Media Project</h1>
-            <!-- <p class="lead">The Social Network for you!</p> -->
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Sign Up</a>
-              <a href="#" class="btn btn-lg btn-default">Log In</a>
-            </p>
+          <div class="cover">
+            <h1 class="cover-heading">MiSlice</h1>
+            <h2><a href="home.php" class="allbtns">Continue</a></h2>
           </div>
 
           <div class="mastfoot">
-            <div class="inner">
-              <p>The Social Media Project Copyright (c) 2016 </p>
-            </div>
+            <p>MiSlice Copyright &copy; 2016 </p>
+            <p>Founded by Chris Mott & Haydn Jones</p>
           </div>
-
+          
         </div>
-
-      </div>
-
-    </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

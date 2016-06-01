@@ -1,0 +1,46 @@
+
+.container {
+
+}
+
+body {
+    background-image:url(../images/background.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Poiret One', cursive;
+    color:white;
+    font-size: 100px;
+}
+
+.cover-heading {
+    
+}
+
+.cover {
+    position:relative;
+    text-align: center;
+    margin-top: 20%
+}
+
+.allbtns {
+}
+
+h2 {
+    font-family: 'Poiret One', cursive;
+    color:white;
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+.mastfoot {
+    position:relative;
+    text-align: center;
+    margin-top:15%;
+    color:white;
+    font-family: 'Poiret One', cursive;
+}
