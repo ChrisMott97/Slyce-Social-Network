@@ -77,11 +77,11 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
 
             if(isset($message)){ echo $message; }
             ?>
-
+            
             <form action="" method="post">
-            <p><label></label><input type="text" name="username" value=""  /></p>
-            <p><label></label><input type="password" name="password" value=""  /></p>
-            <p><label></label><input type="submit" name="submit" value="Login"  /></p>
+                <p><input type="text" placeholder="username" name="username" value=""  /></p>
+                <p><input type="password"  placeholder="password" name="password" value=""  /></p>
+                <p><input type="submit" name="submit" value="Login"  /></p>
             </form>
 
         </div>
