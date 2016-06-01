@@ -18,19 +18,20 @@ if($row['postID'] == ''){
     <title>Post</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
     <div id="wrapper">
 
-        <h1>Blog</h1>
+        <h1>Post</h1>
         <hr />
-        <p><a href="./">Blog Index</a></p>
+        <p><a href="./">Public Wall</a></p>
 
 
         <?php    
             echo '<div>';
-                echo '<p>Posted on '.date('jS M Y', strtotime($row['postDate'])).'</p>';
+                echo '<p>'.date('jS M Y', strtotime($row['postDate'])).'</p>';
                 echo '<p>'.$row['postCont'].'</p>';                
             echo '</div>';
         ?>
