@@ -38,9 +38,17 @@ a {
 }
 
 .mastfoot {
-    position:relative;
+    position:fixed;
     text-align: center;
-    margin-top:15%;
+    left: 0px;
+    bottom: 0px;
+    height: 120px;
+    width: 100%;
     color:white;
     font-family: 'Poiret One', cursive;
+}
+
+#login {
+    text-align: center;
+    display: none;
 }

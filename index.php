@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+//include config
+require_once('includes/config.php');
+
+
+//check if already logged in
+if( $user->is_logged_in() ){ header('Location: home.php'); } 
+?>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,7 +33,8 @@
     <link href="./style/custom.css" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
+    
+    <script src="js/custom.js"></script>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -36,21 +45,46 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<script>
-$(document).ready(function(){
-    $("h1").hide().fadeIn(3000);
-    $("h2").hide().delay(1500).fadeIn(3000);
-    $(".mastfoot").hide().delay(1500).fadeIn(3000);
-    });
-</script>
   <body>
         <div class="container">
 
           <div class="cover">
             <h1 class="cover-heading">MiSlice</h1>
-            <h2><a href="home.php" class="allbtns">Continue</a></h2>
+            <h2><a href="#" class="allbtns">Login</a></h2>
           </div>
+          <div id="login">
 
+            <?php
+
+            //process login form if submitted
+            if(isset($_POST['submit'])){
+
+                $username = trim($_POST['username']);
+                $password = trim($_POST['password']);
+        
+                if($user->login($username,$password)){ 
+
+                    //logged in return to index page
+                    header('Location: index.php');
+                    exit;
+        
+
+                } else {
+                    $message = '<p class="error">Wrong username or password</p>';
+                }
+
+            }//end if submit
+
+            if(isset($message)){ echo $message; }
+            ?>
+
+            <form action="" method="post">
+            <p><label></label><input type="text" name="username" value=""  /></p>
+            <p><label></label><input type="password" name="password" value=""  /></p>
+            <p><label></label><input type="submit" name="submit" value="Login"  /></p>
+            </form>
+
+        </div>
           <div class="mastfoot">
             <p>MiSlice Copyright &copy; 2016 </p>
             <p>Founded by Chris Mott & Haydn Jones</p>
