@@ -3,10 +3,10 @@ ob_start();
 session_start();
 
 //database credentials
-define('DBHOST','sql8.freemysqlhosting.net');
-define('DBUSER','sql8121644');
-define('DBPASS','U49pGXy9UJ');
-define('DBNAME','sql8121644');
+define('DBHOST','eu-cdbr-azure-west-d.cloudapp.net');
+define('DBUSER','b3f3f8913aece6');
+define('DBPASS','2cf49484');
+define('DBNAME','mislicedb');
 
 $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
