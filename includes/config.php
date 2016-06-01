@@ -4,8 +4,8 @@ session_start();
 
 //database credentials
 define('DBHOST','eu-cdbr-azure-west-d.cloudapp.net');
-define('DBUSER','b3f3f8913aece6');
-define('DBPASS','2cf49484');
+define('DBUSER','b4fe548409f56e');
+define('DBPASS','b0bb5596');
 define('DBNAME','mislicedb');
 
 $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
