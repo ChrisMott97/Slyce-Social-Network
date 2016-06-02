@@ -3,7 +3,7 @@
 require_once('includes/config.php');
 
 //include google analytics
-include_once("analyticstracking.php")
+include_once("analyticstracking.php");
 
 //check if already logged in
 if( $user->is_logged_in() ){ header('Location: home.php'); } 
