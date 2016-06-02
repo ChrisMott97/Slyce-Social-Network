@@ -7,6 +7,7 @@
 body {
     background-image:url(../images/background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -43,7 +44,7 @@ a {
     text-align: center;
     left: 0px;
     bottom: 0px;
-    height: 120px;
+    height: 100px;
     width: 100%;
     color:white;
     font-family: 'Poiret One', cursive;
