@@ -1,8 +1,37 @@
 
 h1 {
     font-family: 'Poiret One', cursive;
+    text-align: left;
 }
 
-div {
+
+
+.nav {
+    position: fixed;
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.9
+}
+
+.posts {
+    margin-top: 90px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    width: 40%;
     text-align: center;
+    background-color: white;
+}
+
+body {
+    background-image: url(/images/background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p {
+    font-family: Verdana, Geneva, sans-serif;
 }

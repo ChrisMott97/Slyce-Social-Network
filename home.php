@@ -11,29 +11,29 @@
 <body>
 
     <div id="wrapper">
+        <div class="nav">
+            <h1><img src="images/favicon2.png">MiSlice Wall</h1>
+        </div>
+        <div class="posts">
+            <?php
+                try {
 
-        <h1>Public Wall</h1>
-        <hr />
-
-        <?php
-            try {
-
-                $stmt = $db->query('SELECT postID, postDesc, postDate FROM blog_posts ORDER BY postID DESC');
-                while($row = $stmt->fetch()){
+                    $stmt = $db->query('SELECT postID, postDesc, postDate FROM blog_posts ORDER BY postID DESC');
+                    while($row = $stmt->fetch()){
                     
-                    echo '<div>';
-                        echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                        echo '<p>'.$row['postDesc'].'</p>';                
-                        echo '<p><a href="viewpost.php?id='.$row['postID'].'">Expand</a></p>';                
-                    echo '</div>';
+                        echo '<div>';
+                            echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
+                            echo '<p>'.$row['postDesc'].'</p>';                
+                            echo '<p><a href="viewpost.php?id='.$row['postID'].'">Expand</a></p>';                
+                        echo '</div>';
 
+                    }
+
+                } catch(PDOException $e) {
+                    echo $e->getMessage();
                 }
-
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-        ?>
-
+            ?>
+        </div>
     </div>
 
 
