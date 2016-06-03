@@ -34,7 +34,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
     <h2>Add Post</h2>
 
     <?php
-
     //if form has been submitted process it
     if(isset($_POST['submit'])){
 
@@ -58,11 +57,12 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             try {
 
                 //insert into database
-                $stmt = $db->prepare('INSERT INTO blog_posts (postDesc,postCont,postDate) VALUES (:postDesc, :postCont, :postDate)') ;
+                $stmt = $db->prepare('INSERT INTO blog_posts (postDesc,postCont,postDate,memberID) VALUES (:postDesc, :postCont, :postDate, :memberID)') ;
                 $stmt->execute(array(
                     ':postDesc' => $postDesc,
                     ':postCont' => $postCont,
-                    ':postDate' => date('Y-m-d H:i:s')
+                    ':postDate' => date('Y-m-d H:i:s'),
+                    ':memberID' => $user->get_user_id()
                 ));
 
                 //redirect to index page

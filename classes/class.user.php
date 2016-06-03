@@ -14,6 +14,10 @@ class User{
             return true;
         }        
     }
+    
+    public function get_user_id(){
+        return $_SESSION['userid'];
+    }
 
     public function create_hash($value)
     {
@@ -50,6 +54,7 @@ class User{
         if($this->verify_hash($password,$hashed) == 1){
             
             $_SESSION['loggedin'] = true;
+            $_SESSION['userid'] = db->query('SELECT memberID FROM blog_members WHERE username='.$username)->fetch();
             return true;
         }        
     }
