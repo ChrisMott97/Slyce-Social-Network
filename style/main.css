@@ -1,19 +1,28 @@
 
 h1 {
     font-family: 'Poiret One', cursive;
-    text-align: left;
 }
 
 
 
-.nav {
+#nav {
+    display: table;
+    table-layout: fixed;
     position: fixed;
-    display: block;
     width: 100%;
     top: 0;
     left: 0;
     background-color: white;
-    opacity: 0.9
+    opacity: 0.8;
+    border-bottom-style: solid;
+    border-color: rgba(100, 100, 100, 0.15);
+    border-width: thin;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#nav div {
+    display: table-cell;
 }
 
 .posts {
@@ -27,11 +36,65 @@ h1 {
 }
 
 body {
-    background-image: url(/images/background2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: rgb(245, 255, 245);
 }
 
 p {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.thepost {
+    border-style: solid;
+    border-width: thin;
+    margin: 10px;
+    padding: 10px;
+    border-color: rgba(100, 100, 100, 0.15);
+}
+#btnLogout {
+    text-decoration: none;
+    color: black;
+    font-family: Verdana, Geneva, sans-serif;
+}
+#btnLogout:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.46);
+}
+
+#navLogo {
+    display: inline;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    font-family: inherit;
+}
+
+#navLeft {
+    text-align: right;
+}
+
+#navCenter {
+    display: inline;
+    text-align: center;
+}
+
+#navRight {
+    text-align: left;
+}
+
+#btnAccount {
+    text-decoration: none;
+    color: black;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#btnAccount:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.46);
+}
+
+#expand {
+    text-align: right;
     font-family: Verdana, Geneva, sans-serif;
 }
