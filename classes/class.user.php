@@ -29,14 +29,14 @@ class User{
         return $hash == crypt($password, $hash);
     }
 
-    private function get_user_hash($username){    
+    private function get_user_hash($email){    
 
         try {
 
             //echo $this->create_hash('demo');
 
-            $stmt = $this->db->prepare('SELECT password FROM blog_members WHERE username = :username');
-            $stmt->execute(array('username' => $username));
+            $stmt = $this->db->prepare('SELECT password FROM blog_members WHERE email = :email');
+            $stmt->execute(array('email' => $email));
             
             $row = $stmt->fetch();
             return $row['password'];
@@ -47,14 +47,17 @@ class User{
     }
 
     
-    public function login($username,$password){    
+    public function login($email,$password){    
 
-        $hashed = $this->get_user_hash($username);
+        $hashed = $this->get_user_hash($email);
         
         if($this->verify_hash($password,$hashed) == 1){
             
             $_SESSION['loggedin'] = true;
-            $_SESSION['userid'] = db->query('SELECT memberID FROM blog_members WHERE username='.$username)->fetch();
+            $stmt = $this->db->prepare('SELECT memberID FROM blog_members WHERE email = :email');
+            $stmt->execute(array('email' => $email));
+            $row = $stmt->fetch();
+            $_SESSION['userid'] = $row['memberID'];
             return true;
         }        
     }

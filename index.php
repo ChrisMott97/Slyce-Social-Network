@@ -62,10 +62,10 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
             //process login form if submitted
             if(isset($_POST['submit'])){
 
-                $username = trim($_POST['username']);
+                $email = trim($_POST['email']);
                 $password = trim($_POST['password']);
         
-                if($user->login($username,$password)){ 
+                if($user->login($email,$password)){ 
 
                     //logged in return to index page
                     header('Location: index.php');
@@ -73,7 +73,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
         
 
                 } else {
-                    $message = '<p class="error">Wrong username or password</p>';
+                    $message = '<p class="error">Wrong email or password</p>';
                 }
 
             }//end if submit
@@ -82,7 +82,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
             ?>
             
             <form action="" method="post">
-                <p><input type="text" placeholder="username" name="username" value=""  /></p>
+                <p><input type="text" placeholder="email" name="email" value=""  /></p>
                 <p><input type="password"  placeholder="password" name="password" value=""  /></p>
                 <p><input type="submit" name="submit" value="Login"  /></p>
             </form>

@@ -34,6 +34,14 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
         if($username ==''){
             $error[] = 'Please enter the username.';
         }
+        
+        if($firstName ==''){
+            $error[] = 'Please enter your first name.';
+        }
+        
+        if($lastName ==''){
+            $error[] = 'Please enter your last name.';
+        }
 
         if( strlen($password) > 0){
 
@@ -65,9 +73,11 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                     $hashedpassword = $user->create_hash($password);
 
                     //update into database
-                    $stmt = $db->prepare('UPDATE blog_members SET username = :username, password = :password, email = :email WHERE memberID = :memberID') ;
+                    $stmt = $db->prepare('UPDATE blog_members SET username = :username, firstName = :firstName, lastName = :lastName, password = :password, email = :email WHERE memberID = :memberID') ;
                     $stmt->execute(array(
                         ':username' => $username,
+                        ':firstName' => $firstName,
+                        ':lastName' => $lastName,
                         ':password' => $hashedpassword,
                         ':email' => $email,
                         ':memberID' => $memberID
@@ -77,9 +87,11 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                 } else {
 
                     //update database
-                    $stmt = $db->prepare('UPDATE blog_members SET username = :username, email = :email WHERE memberID = :memberID') ;
+                    $stmt = $db->prepare('UPDATE blog_members SET username = :username, firstName = :firstName, lastName = :lastName, email = :email WHERE memberID = :memberID') ;
                     $stmt->execute(array(
                         ':username' => $username,
+                        ':firstName' => $firstName,
+                        ':lastName' => $lastName,
                         ':email' => $email,
                         ':memberID' => $memberID
                     ));
@@ -127,6 +139,12 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
         <p><label>Username</label><br />
         <input type='text' name='username' value='<?php echo $row['username'];?>'></p>
+        
+        <p><label>First Name</label><br />
+        <input type='text' name='firstName' value='<?php echo $row['firstName'];?>'></p>
+        
+        <p><label>Last Name</label><br />
+        <input type='text' name='lastName' value='<?php echo $row['lastName'];?>'></p>
 
         <p><label>Password (only to change)</label><br />
         <input type='password' name='password' value=''></p>

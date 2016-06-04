@@ -37,6 +37,14 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
         if($password ==''){
             $error[] = 'Please enter the password.';
         }
+        
+        if($firstName ==''){
+            $error[] = 'Please enter your first name.';
+        }
+        
+        if($lastName ==''){
+            $error[] = 'Please enter your last name.';
+        }
 
         if($passwordConfirm ==''){
             $error[] = 'Please confirm the password.';
@@ -57,9 +65,11 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             try {
 
                 //insert into database
-                $stmt = $db->prepare('INSERT INTO blog_members (username,password,email) VALUES (:username, :password, :email)') ;
+                $stmt = $db->prepare('INSERT INTO blog_members (username,firstName,lastName,password,email) VALUES (:username, :firstName, :lastName, :password, :email)') ;
                 $stmt->execute(array(
                     ':username' => $username,
+                    ':firstName' => $firstName,
+                    ':lastName' => $lastName,
                     ':password' => $hashedpassword,
                     ':email' => $email
                 ));
@@ -88,6 +98,12 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
         <p><label>Username</label><br />
         <input type='text' name='username' value='<?php if(isset($error)){ echo $_POST['username'];}?>'></p>
+        
+        <p><label>First Name</label><br />
+        <input type='text' name='firstName' value='<?php if(isset($error)){ echo $_POST['firstName'];}?>'></p>
+        
+        <p><label>Last Name</label><br />
+        <input type='text' name='lastName' value='<?php if(isset($error)){ echo $_POST['lastName'];}?>'></p>
 
         <p><label>Password</label><br />
         <input type='password' name='password' value='<?php if(isset($error)){ echo $_POST['password'];}?>'></p>

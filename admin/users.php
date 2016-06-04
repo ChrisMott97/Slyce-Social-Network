@@ -53,6 +53,8 @@ if(isset($_GET['deluser'])){
 
     <table>
     <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
         <th>Username</th>
         <th>Email</th>
         <th>Action</th>
@@ -60,10 +62,12 @@ if(isset($_GET['deluser'])){
     <?php
         try {
 
-            $stmt = $db->query('SELECT memberID, username, email FROM blog_members ORDER BY username');
+            $stmt = $db->query('SELECT memberID, username, firstName, lastName, email FROM blog_members ORDER BY username');
             while($row = $stmt->fetch()){
                 
                 echo '<tr>';
+                echo '<td>'.$row['firstName'].'</td>';
+                echo '<td>'.$row['lastName'].'</td>';
                 echo '<td>'.$row['username'].'</td>';
                 echo '<td>'.$row['email'].'</td>';
                 ?>
