@@ -83,13 +83,13 @@ a {
     text-align: left;
 }
 
-#btnAccount {
+#btnProfile {
     text-decoration: none;
     color: black;
     font-family: Verdana, Geneva, sans-serif;
 }
 
-#btnAccount:hover {
+#btnProfile:hover {
     text-decoration: underline;
     text-decoration-color: rgba(0, 0, 0, 0.46);
 }
@@ -97,4 +97,14 @@ a {
 #expand {
     text-align: right;
     font-family: Verdana, Geneva, sans-serif;
+}
+#btnNewsFeed {
+    text-decoration: none;
+    color: black;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#btnNewsFeed:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.46);
 }
