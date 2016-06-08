@@ -1,6 +1,6 @@
 <?php require('includes/config.php'); 
 
-$stmt = $db->prepare('SELECT postID, postCont, postDate FROM blog_posts WHERE postID = :postID');
+$stmt = $db->prepare('SELECT postID, postCont, postDate FROM posts WHERE postID = :postID');
 $stmt->execute(array(':postID' => $_GET['id']));
 $row = $stmt->fetch();
 

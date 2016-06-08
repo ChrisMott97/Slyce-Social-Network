@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 //show message from add / edit page
 if(isset($_GET['delpost'])){ 
 
-    $stmt = $db->prepare('DELETE FROM blog_posts WHERE postID = :postID') ;
+    $stmt = $db->prepare('DELETE FROM posts WHERE postID = :postID') ;
     $stmt->execute(array(':postID' => $_GET['delpost']));
 
     header('Location: index.php?action=deleted');
@@ -54,7 +54,7 @@ if(isset($_GET['delpost'])){
     <?php
         try {
 
-            $stmt = $db->query('SELECT postID, postDate FROM blog_posts ORDER BY postID DESC');
+            $stmt = $db->query('SELECT postID, postDate FROM posts ORDER BY postID DESC');
             while($row = $stmt->fetch()){
                 
                 echo '<tr>';

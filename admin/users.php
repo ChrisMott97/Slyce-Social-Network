@@ -11,7 +11,7 @@ if(isset($_GET['deluser'])){
     //if user id is 1 ignore
     if($_GET['deluser'] !='1'){
 
-        $stmt = $db->prepare('DELETE FROM blog_members WHERE memberID = :memberID') ;
+        $stmt = $db->prepare('DELETE FROM members WHERE memberID = :memberID') ;
         $stmt->execute(array(':memberID' => $_GET['deluser']));
 
         header('Location: users.php?action=deleted');
@@ -62,7 +62,7 @@ if(isset($_GET['deluser'])){
     <?php
         try {
 
-            $stmt = $db->query('SELECT memberID, username, firstName, lastName, email FROM blog_members ORDER BY username');
+            $stmt = $db->query('SELECT memberID, username, firstName, lastName, email FROM members ORDER BY username');
             while($row = $stmt->fetch()){
                 
                 echo '<tr>';

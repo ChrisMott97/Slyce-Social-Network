@@ -57,7 +57,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             try {
 
                 //insert into database
-                $stmt = $db->prepare('INSERT INTO blog_posts (postDesc,postCont,postDate,memberID) VALUES (:postDesc, :postCont, :postDate, :memberID)') ;
+                $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,memberID) VALUES (:postDesc, :postCont, :postDate, :memberID)') ;
                 $stmt->execute(array(
                     ':postDesc' => $postDesc,
                     ':postCont' => $postCont,

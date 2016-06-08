@@ -35,7 +35,7 @@ class User{
 
             //echo $this->create_hash('demo');
 
-            $stmt = $this->db->prepare('SELECT password FROM blog_members WHERE email = :email');
+            $stmt = $this->db->prepare('SELECT password FROM members WHERE email = :email');
             $stmt->execute(array('email' => $email));
             
             $row = $stmt->fetch();
@@ -54,7 +54,7 @@ class User{
         if($this->verify_hash($password,$hashed) == 1){
             
             $_SESSION['loggedin'] = true;
-            $stmt = $this->db->prepare('SELECT memberID FROM blog_members WHERE email = :email');
+            $stmt = $this->db->prepare('SELECT memberID FROM members WHERE email = :email');
             $stmt->execute(array('email' => $email));
             $row = $stmt->fetch();
             $_SESSION['userid'] = $row['memberID'];

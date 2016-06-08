@@ -26,7 +26,7 @@
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT blog_members.username, postID, postDesc, postDate FROM blog_members INNER JOIN blog_posts ON blog_members.memberID = blog_posts.memberID ORDER BY postID DESC');
+                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate FROM members INNER JOIN posts ON members.memberID = posts.memberID ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                     
                         echo '<div class="thepost">';
