@@ -108,3 +108,29 @@ a {
     text-decoration: underline;
     text-decoration-color: rgba(0, 0, 0, 0.46);
 }
+
+#profileHeader_1 {
+    margin-top: 90px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    width: 40%;
+    height: 100px;
+    text-align: center;
+}
+
+#profilePic {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background-image: url("http://orig13.deviantart.net/615f/f/2014/153/2/e/no_profile_picture_icon___eren_by_qootungtung-d7kqlb3.jpg");
+    background-size: contain;
+    display: inline-block;
+    z-index: 2;
+}
+
+#profileName {
+    display: inline-block;
+    z-index: 1;
+    border-bottom: 50px;
+}

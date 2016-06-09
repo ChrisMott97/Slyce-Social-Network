@@ -41,6 +41,10 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                 <a href="/home.php"><div id="btnNewsFeed">News Feed</div></a>
             </div>
         </div>
+        <div id="profileHeader_1">
+            <div id='profilePic'></div>
+            <div id="profileName"><h1>Chris Mott</h1></div>
+        </div>
         <div class="posts">
             <?php
                 try {
