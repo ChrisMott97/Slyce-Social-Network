@@ -42,8 +42,36 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             </div>
         </div>
         <div id="profileHeader_1">
-            <div id='profilePic'></div>
-            <div id="profileName"><h1>Chris Mott</h1></div>
+            <?php
+                try {
+
+                    $stmt = $db->query('SELECT profilePicture FROM members WHERE memberID='.$user->get_user_id());
+                    while($row = $stmt->fetch()){
+                        $dp = "/images/profilepics/".$row['profilePicture'];
+                    }
+
+                    } catch(PDOException $e) {
+                    echo $e->getMessage();
+                    }
+            ?>
+            <div id='profilePic' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div>
+            <?php
+                try {
+
+                    $stmt = $db->query('SELECT firstName, lastName, username FROM members WHERE memberID='.$user->get_user_id());
+                    while($row = $stmt->fetch()){
+                        echo '<div id="profileUserName">';
+                            echo '<p>'.$row['username'].'</p>';               
+                        echo '</div>';
+                        echo '<div id="profileName">';
+                            echo '<h1>'.$row['firstName'].' '.$row['lastName'].'</h1>';
+                        echo '</div>';
+                    }
+
+                } catch(PDOException $e) {
+                    echo $e->getMessage();
+                }
+            ?>
         </div>
         <div class="posts">
             <?php
