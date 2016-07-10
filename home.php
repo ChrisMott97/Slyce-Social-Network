@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Public Wall</title>
+    <title>Slyce Wall</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
@@ -16,7 +16,7 @@
                 <a href="admin/logout.php"><div id="btnLogout">Logout</div></a>
             </div>
             <div id="navCenter">
-                <h1 id="navLogo">MiSlice Wall</h1>
+                <h1 id="navLogo">Slyce Wall</h1>
             </div>
             <div id="navRight">
                 <a href="/user/profile.php"><div id="btnProfile">Profile</div></a>

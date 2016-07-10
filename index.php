@@ -20,7 +20,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <meta name="author" content="">
     <link rel="icon" href="./favicon.png">
 
-    <title>MiSlice</title>
+    <title>Slyce</title>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="./style/bootstrap.min.css" rel="stylesheet"> -->
@@ -52,7 +52,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
         <div class="container">
 
           <div class="cover">
-            <h1 class="cover-heading">MiSlice</h1>
+            <h1 class="cover-heading">Slyce</h1>
             <h2><a href="#" class="allbtns">Login</a></h2>
           </div>
           <div id="login">
@@ -89,7 +89,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
 
         </div>
           <div class="mastfoot">
-            <p>MiSlice Copyright &copy; 2016 </p>
+            <p>Slyce Copyright &copy; 2016 </p>
             <p>Founded by Chris Mott & Haydn Jones</p>
           </div>
           

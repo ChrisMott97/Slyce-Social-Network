@@ -4,9 +4,9 @@ session_start();
 
 //database credentials
 define('DBHOST','eu-cdbr-azure-west-d.cloudapp.net');
-define('DBUSER','b4fe548409f56e');
-define('DBPASS','b0bb5596');
-define('DBNAME','mislicedb');
+define('DBUSER','b6cae1712ef518');
+define('DBPASS','e7617697');
+define('DBNAME','slyce');
 
 $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

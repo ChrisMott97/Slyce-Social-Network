@@ -22,7 +22,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Public Wall</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="/style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
