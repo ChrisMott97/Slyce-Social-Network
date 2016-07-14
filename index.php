@@ -90,7 +90,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
         </div>
           <div class="mastfoot">
             <p>Slyce Copyright &copy; 2016 </p>
-            <p>Founded by Chris Mott & Haydn Jones</p>
+            <p>Founded by Chris Mott, Alfie Llewellyn & Haydn Jones</p>
           </div>
           
         </div>
