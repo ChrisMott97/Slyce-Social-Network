@@ -41,6 +41,8 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,8 +52,9 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
   </head>
   <body>
         <div class="container">
-
-          <div class="cover">
+ <canvas id="myCanvas"></canvas>
+    <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>
+    <script type="text/javascript" src="main.js"></script>
             <h1 class="cover-heading">Slyce</h1>
             <h2><a href="#" class="allbtns">Login</a></h2>
           </div>
