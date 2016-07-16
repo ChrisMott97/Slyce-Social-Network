@@ -16,6 +16,7 @@ h1 {
     border-width: thin;
     padding-top: 15px;
     padding-bottom: 15px;
+    z-index: 10;
 }
 
 #nav div {
@@ -143,3 +144,7 @@ a {
     width: auto;
 }
 
+
+textarea {
+    resize: none;
+}

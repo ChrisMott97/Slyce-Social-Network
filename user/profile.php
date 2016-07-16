@@ -74,17 +74,22 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             ?>
         </div>
         <div class="posts">
+            <?php include('../includes/createPostForm.php');?>
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id());
+                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id().' ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                     
                         echo '<div class="thepost">';
                             echo '<p>'.$row['username'].'</p>';
                             echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
                             echo '<p>'.$row['postDesc'].'</p>';                
-                            echo '<p><a href="viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';                
+                            if ($row['canExpand'] == 1) {
+                                echo '<p><a href="/viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';
+                            } else {
+                                echo '';
+                            }                
                         echo '</div>';
 
                     }

@@ -16,7 +16,6 @@ if($row['postID'] == ''){
 <head>
     <meta charset="utf-8">
     <title>Post</title>
-    <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>

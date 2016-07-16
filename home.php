@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Slyce Wall</title>
-    <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
@@ -23,17 +22,22 @@
             </div>
         </div>
         <div class="posts">
+           <?php include('./includes/createPostForm.php');?>
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate FROM members INNER JOIN posts ON members.memberID = posts.memberID ORDER BY postID DESC');
+                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand FROM members INNER JOIN posts ON members.memberID = posts.memberID ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                     
                         echo '<div class="thepost">';
                             echo '<p>'.$row['username'].'</p>';
                             echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                            echo '<p>'.$row['postDesc'].'</p>';                
-                            echo '<p><a href="viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';                
+                            echo '<p>'.$row['postDesc'].'</p>';
+                            if ($row['canExpand'] == 1) {
+                                echo '<p><a href="viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';
+                            } else {
+                                echo '';
+                            }
                         echo '</div>';
 
                     }
