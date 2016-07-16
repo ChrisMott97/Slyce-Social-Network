@@ -1,9 +1,9 @@
 <?php
 //include config
-require_once('../includes/config.php');
+require_once('includes/config.php');
 
 //if not logged in redirect to login page
-if(!$user->is_logged_in()){ header('Location: login.php'); }
+if(!$user->is_logged_in()){ header('Location: index.php'); }
 
 /*try {
 
@@ -23,8 +23,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <head>
     <meta charset="utf-8">
     <title>Profile</title>
-    <link rel="stylesheet" href="style/normalize.css">
-    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -32,13 +31,13 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
     <div id="wrapper">
         <div id="nav">
             <div id="navLeft">
-                <a href="/admin/logout.php"><div id="btnLogout">Logout</div></a>
+                <a href="admin/logout.php"><div id="btnLogout">Logout</div></a>
             </div>
             <div id="navCenter">
                 <h1 id="navLogo">Profile</h1>
             </div>
             <div id="navRight">
-                <a href="/home.php"><div id="btnNewsFeed">News Feed</div></a>
+                <a href="home.php"><div id="btnNewsFeed">News Feed</div></a>
             </div>
         </div>
         <div id="profileHeader_1">
@@ -47,7 +46,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
                     $stmt = $db->query('SELECT profilePicture FROM members WHERE memberID='.$user->get_user_id());
                     while($row = $stmt->fetch()){
-                        $dp = "/images/profilepics/".$row['profilePicture'];
+                        $dp = "images/profilepics/".$row['profilePicture'];
                     }
 
                     } catch(PDOException $e) {
@@ -74,7 +73,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             ?>
         </div>
         <div class="posts">
-            <?php include('../includes/createPostForm.php');?>
+            <?php include('includes/createPostForm.php');?>
             <?php
                 try {
 
@@ -86,7 +85,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                             echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
                             echo '<p>'.$row['postDesc'].'</p>';                
                             if ($row['canExpand'] == 1) {
-                                echo '<p><a href="/viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';
+                                echo '<p><a href="viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';
                             } else {
                                 echo '';
                             }                

@@ -15,14 +15,14 @@
                 <a href="admin/logout.php"><div id="btnLogout">Logout</div></a>
             </div>
             <div id="navCenter">
-                <h1 id="navLogo">Slyce Wall</h1>
+                <h1 id="navLogo">Slyce</h1>
             </div>
             <div id="navRight">
-                <a href="/user/profile.php"><div id="btnProfile">Profile</div></a>
+                <a href="profile.php"><div id="btnProfile">Profile</div></a>
             </div>
         </div>
         <div class="posts">
-           <?php include('./includes/createPostForm.php');?>
+           <?php include('includes/createPostForm.php');?>
             <?php
                 try {
 
