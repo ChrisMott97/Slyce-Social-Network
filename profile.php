@@ -24,22 +24,14 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <meta charset="utf-8">
     <title>Profile</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
     <div id="wrapper">
-        <div id="nav">
-            <div id="navLeft">
-                <a href="admin/logout.php"><div id="btnLogout">Logout</div></a>
-            </div>
-            <div id="navCenter">
-                <h1 id="navLogo">Profile</h1>
-            </div>
-            <div id="navRight">
-                <a href="home.php"><div id="btnNewsFeed">News Feed</div></a>
-            </div>
-        </div>
+        <?php include('includes/navigation.php');?>
         <div id="profileHeader_1">
             <?php
                 try {

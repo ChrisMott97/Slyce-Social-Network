@@ -5,22 +5,14 @@
     <meta charset="utf-8">
     <title>Slyce Wall</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
     <div id="wrapper">
-        <div id="nav">
-            <div id="navLeft">
-                <a href="admin/logout.php"><div id="btnLogout">Logout</div></a>
-            </div>
-            <div id="navCenter">
-                <h1 id="navLogo">Slyce</h1>
-            </div>
-            <div id="navRight">
-                <a href="profile.php"><div id="btnProfile">Profile</div></a>
-            </div>
-        </div>
+        <?php include('includes/navigation.php');?>
         <div class="posts">
            <?php include('includes/createPostForm.php');?>
             <?php
