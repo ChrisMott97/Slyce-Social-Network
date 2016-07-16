@@ -33,7 +33,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles for this template -->
-    <link href="./style/custom.css" rel="stylesheet">
+    <link href="style/custom.css" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     
