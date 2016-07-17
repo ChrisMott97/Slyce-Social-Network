@@ -71,16 +71,23 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 
                     $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id().' ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
-                    
-                        echo '<div class="thepost">';
-                            echo '<p>'.$row['username'].'</p>';
-                            echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                            echo '<p>'.$row['postDesc'].'</p>';                
-                            if ($row['canExpand'] == 1) {
-                                echo '<p><a href="viewpost.php?id='.$row['postID'].'"><div id="expand">Expand</div></a></p>';
-                            } else {
-                                echo '';
-                            }                
+                        echo '<div class="row">';
+                            echo '<div class="col s12 m12">';
+                                echo '<div class="card">';
+                                    echo '<div class="card-content black-text">';
+                                        echo '<span class="card-title">'.$row['username'].'</span>';
+                                        echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
+                                        echo '<p>'.$row['postDesc'].'</p>';
+                                    echo '</div>';
+                                    echo '<div class="card-action">';
+                                        echo '<a href="#">Like</a>';
+                                        if ($row['canExpand'] == 1) {
+                                            echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
+                                        } else {
+                                        }
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
                         echo '</div>';
 
                     }
