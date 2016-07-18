@@ -28,17 +28,25 @@ h1 {
 }
 
 .posts {
-    margin-top: 90px;
+    margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
-    width: 40%;
+    width: 900px;
     text-align: center;
     background-color: white;
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class="posts"] {
+        width: 100%;
+    }
+}
+
 body {
     background-color: #f5fff5;
+    min-height: 100%;
 }
 
 .thepost {
@@ -102,14 +110,21 @@ body {
 }
 
 #profileHeader_1 {
-    margin-top: 90px;
+    margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
-    width: 40%;
-    height: 200px;
+    width: 900px;
+    height: 250px;
     text-align: center;
     background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #profileHeader_1 {
+        width: 100%;
+    }
 }
 
 #profilePic {
@@ -130,6 +145,8 @@ body {
     z-index: 2;
     text-align: center;
     width: auto;
+    font-size: 30px;
+    font-family: 'Poiret One', cursive;
 }
 #profileUserName {
     display: relative;

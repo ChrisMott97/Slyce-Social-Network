@@ -14,9 +14,8 @@
 <body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
-    <script>jQuery(function($) {
-    $('.modal-trigger').leanModal();
-});</script>
+    <script>jQuery(function($) {$('.modal-trigger').leanModal();
+                               $(".button-collapse").sideNav();});</script>
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
         <div class="posts">

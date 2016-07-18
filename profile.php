@@ -29,11 +29,10 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
-    <script>jQuery(function($) {
-    $('.modal-trigger').leanModal();
-});</script>
+    <script>jQuery(function($) {$('.modal-trigger').leanModal();
+                               $(".button-collapse").sideNav();});</script>
 
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
@@ -60,7 +59,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                             echo '<p>'.$row['username'].'</p>';               
                         echo '</div>';
                         echo '<div id="profileName">';
-                            echo '<h1>'.$row['firstName'].' '.$row['lastName'].'</h1>';
+                            echo '<b>'.$row['firstName'].' '.$row['lastName'].'</b>';
                         echo '</div>';
                     }
 
