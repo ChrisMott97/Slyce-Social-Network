@@ -35,11 +35,10 @@
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
                                     echo '<div class="card-action">';
-                                        echo '<a href="#">Like</a>';
+                                        echo '<a href="#"><i class="material-icons">thumb_up</i></a>';
                                         if ($row['canExpand'] == 1) {
                                             //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
                                             echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';
-                                        } else {
                                         }
                                     echo '</div>';
                                     echo '<div id="modal'.$row['postID'].'" class="modal">';
