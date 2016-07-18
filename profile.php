@@ -29,6 +29,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script>jQuery(function($) {
+    $('.modal-trigger').leanModal();
+});</script>
 
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
@@ -69,22 +74,32 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id().' ORDER BY postID DESC');
+                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id().' ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                         echo '<div class="row">';
                             echo '<div class="col s12 m12">';
                                 echo '<div class="card">';
                                     echo '<div class="card-content black-text">';
-                                        echo '<span class="card-title">'.$row['username'].'</span>';
+                                        echo '<span class="card-title ">'.$row['username'].'</span>';
                                         echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
                                     echo '<div class="card-action">';
                                         echo '<a href="#">Like</a>';
                                         if ($row['canExpand'] == 1) {
-                                            echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
+                                            //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
+                                            echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';
                                         } else {
                                         }
+                                    echo '</div>';
+                                    echo '<div id="modal'.$row['postID'].'" class="modal">';
+                                        echo '<div class="modal-content">';
+                                            echo '<h4>'.$row['username'].'</h4>';
+                                            echo '<p>'.$row['postCont'].'</p>';
+                                        echo '</div>';
+                                        echo '<div class="modal-footer">';
+                                            echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Return</a>';
+                                        echo '</div>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';

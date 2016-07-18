@@ -63,21 +63,15 @@
         }
         ?>
           <div class="row">
-            <form class="col s12">
+            <form class="col s12" action='' method='post'>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Textarea</label>
+                  <textarea name="postCont" id="textarea1" class="materialize-textarea"><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea>
+                  <label for="textarea1">Post</label>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" name="submit">Post<i class="material-icons right">send</i></button>
               </div>
             </form>
-          </div>               
-        <form action='' method='post'>
-                   
-            <textarea name='postCont' cols='100' rows='10' ><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea></p>
-    
-            <p><input type='submit' name='submit' value='Post'></p>
-    
-        </form>
+          </div>            
                 
 </div>
