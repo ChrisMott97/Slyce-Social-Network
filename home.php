@@ -13,8 +13,8 @@
 </head>
 <body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="materialize-src/js/bin/materialize.js"></script>
     <script src="js/custom2.js"></script>
+    <script src="materialize-src/js/bin/materialize.js"></script>
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
         <div class="posts">
