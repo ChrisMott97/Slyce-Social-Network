@@ -1,3 +1,3 @@
-$(document).ready(function() {
-  $('.modal-trigger').leanModal();
-});
+jQuery(function($) {
+    $('.modal-trigger').leanModal();
+})(jQuery);
