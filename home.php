@@ -12,14 +12,13 @@
     
 </head>
 <body>
-    <script src="js/jquery-3.1.0.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/custom2.js"></script>
     <script src="materialize-src/js/bin/materialize.js"></script>
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
         <div class="posts">
            <?php include('includes/createPostForm.php');?>
-           
             <?php
                 try {
 
