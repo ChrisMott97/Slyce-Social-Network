@@ -35,7 +35,7 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <!-- Custom styles for this template -->
     <link href="style/custom.css" rel="stylesheet">
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="js/jquery-3.1.0.js"></script>
     
     <script src="js/custom.js"></script>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
