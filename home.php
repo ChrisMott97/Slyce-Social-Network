@@ -30,16 +30,26 @@
                             echo '<div class="col s12 m12">';
                                 echo '<div class="card">';
                                     echo '<div class="card-content black-text">';
-                                        echo '<span class="card-title">'.$row['username'].'</span>';
+                                        echo '<span class="card-title ">'.$row['username'].'</span>';
                                         echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
                                     echo '<div class="card-action">';
                                         echo '<a href="#">Like</a>';
                                         if ($row['canExpand'] == 1) {
-                                            echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
+                                            //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
+                                            echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';
                                         } else {
                                         }
+                                    echo '</div>';
+                                    echo '<div id="modal'.$row['postID'].'" class="modal">';
+                                        echo '<div class="modal-content">';
+                                            echo '<h4>'.$row['username'].'</h4>';
+                                            echo '<p>'.$row['postCont'].'</p>';
+                                        echo '</div>';
+                                        echo '<div class="modal-footer">';
+                                            echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Return</a>';
+                                        echo '</div>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
