@@ -141,18 +141,21 @@ body {
 }
 
 #profileName {
-    display: relative;
+    position: relative;
     z-index: 2;
     text-align: center;
     width: auto;
     font-size: 30px;
     font-family: 'Poiret One', cursive;
+    display: inline-block;
+    padding-right: 70px;
 }
 #profileUserName {
-    display: relative;
+    position: relative;
     z-index: 3;
     text-align: right;
     width: auto;
+    display: inline-block;
 }
 
 

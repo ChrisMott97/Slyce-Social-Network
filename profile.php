@@ -56,11 +56,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 
                     $stmt = $db->query('SELECT firstName, lastName, username FROM members WHERE memberID='.$user->get_user_id());
                     while($row = $stmt->fetch()){
-                        echo '<div id="profileUserName">';
-                            echo '<p>'.$row['username'].'</p>';               
-                        echo '</div>';
                         echo '<div id="profileName">';
                             echo '<b>'.$row['firstName'].' '.$row['lastName'].'</b>';
+                        echo '</div>';
+                        echo '<div id="profileUserName">';
+                            echo '<p>'.$row['username'].'</p>';               
                         echo '</div>';
                     }
 
