@@ -50,7 +50,8 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                     echo $e->getMessage();
                     }
             ?>
-            <div id='profilePic' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div>
+            <div class='profilePic circle' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div>
+            <div class='profileLine'>
             <?php
                 try {
 
@@ -68,6 +69,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                     echo $e->getMessage();
                 }
             ?>
+            </div>
+            <div class="profileBioLine">
+                <u>Bio</u>
+                <div class='bioContent'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel tellus nec sem mattis aliquet ut non sem. Sed semper.</div>
+            </div>
         </div>
         <div class="posts">
             <?php include('includes/createPostForm.php');?>
