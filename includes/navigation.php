@@ -9,9 +9,9 @@
           <li><a href="admin/logout.php"><i class="material-icons">exit_to_app</i></a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><a href="index.php">Public Wall</a></li>
-          <li><a href="profile.php">Profile</a></li>
-          <li><a href="admin/logout.php">Logout</a></li>
+          <li><a href="./index.php">Public Wall</a></li>
+          <li><a href="./profile.php">Profile</a></li>
+          <li><a href="./admin/logout.php">Logout</a></li>
         </ul>
       </div>
     </nav>

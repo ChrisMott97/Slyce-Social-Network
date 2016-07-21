@@ -21,12 +21,6 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <link rel="icon" href="./favicon.png">
 
     <title>Slyce</title>
-
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="./style/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     
@@ -38,15 +32,6 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
     <script src="js/jquery-3.1.0.js"></script>
     
     <script src="js/custom.js"></script>
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
         <div class="container">
@@ -88,12 +73,13 @@ if( $user->is_logged_in() ){ header('Location: home.php'); }
             </form>
 
         </div>
-          <div class="mastfoot">
+
+        </div>
+        <div class="mastfoot">
             <p>Slyce Copyright &copy; 2016 </p>
             <p>Founded by Chris Mott, Alfie Llewellyn  & Haydn Jones</p>
-          </div>
-          
         </div>
+        
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
