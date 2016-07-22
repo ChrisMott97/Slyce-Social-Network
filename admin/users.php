@@ -9,7 +9,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 if(isset($_GET['deluser'])){ 
 
     //if user id is 1 ignore
-    if($_GET['deluser'] !='1'){
+    if($_GET['deluser'] !='thatpianoguyx'){
 
         $stmt = $db->prepare('DELETE FROM members WHERE username = :username') ;
         $stmt->execute(array(':username' => $_GET['deluser']));

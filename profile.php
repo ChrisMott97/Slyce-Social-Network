@@ -86,7 +86,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                             echo '<div class="col s12 m12">';
                                 echo '<div class="card">';
                                     echo '<div class="card-content black-text">';
-                                        echo '<span class="card-title ">'.$row['username'].'</span>';
+                                        echo '<span class="card-title ">'.$user->get_username().'</span>';
                                         echo '<p>'.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
@@ -100,7 +100,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                                     echo '</div>';
                                     echo '<div id="modal'.$row['postID'].'" class="modal">';
                                         echo '<div class="modal-content">';
-                                            echo '<h4>'.$row['username'].'</h4>';
+                                            echo '<h4>'.$user->get_username().'</h4>';
                                             echo '<p>'.$row['postCont'].'</p>';
                                         echo '</div>';
                                         echo '<div class="modal-footer">';

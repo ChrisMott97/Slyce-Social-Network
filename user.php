@@ -37,12 +37,13 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
-        <?php $uname = $_GET['u'];?>
+        <?php 
+        $uname = $_GET['u'];?>
         <div id="profileHeader_1">
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT profilePicture FROM members WHERE memberID='.$user->get_user_id());
+                    $stmt = $db->query('SELECT profilePicture FROM members WHERE username="'.$uname.'"');
                     while($row = $stmt->fetch()){
                         $dp = "images/profilepics/".$row['profilePicture'];
                     }
@@ -56,7 +57,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT firstName, lastName, username FROM members WHERE memberID='.$user->get_user_id());
+                    $stmt = $db->query('SELECT firstName, lastName, username FROM members WHERE username="'.$uname.'"');
                     while($row = $stmt->fetch()){
                         echo '<div id="profileName">';
                             echo '<b>'.$row['firstName'].' '.$row['lastName'].'</b>';
@@ -77,11 +78,10 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             </div>
         </div>
         <div class="posts">
-            <?php include('includes/createPostForm.php');?>
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.memberID = posts.memberID WHERE members.memberID='.$user->get_user_id().' ORDER BY postID DESC');
+                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username WHERE members.username="'.$uname.'" ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                         echo '<div class="row">';
                             echo '<div class="col s12 m12">';
