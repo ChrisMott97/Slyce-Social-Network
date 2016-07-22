@@ -57,12 +57,12 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
             try {
 
                 //insert into database
-                $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,memberID) VALUES (:postDesc, :postCont, :postDate, :memberID)') ;
+                $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,username) VALUES (:postDesc, :postCont, :postDate, :username)') ;
                 $stmt->execute(array(
                     ':postDesc' => $postDesc,
                     ':postCont' => $postCont,
                     ':postDate' => date('Y-m-d H:i:s'),
-                    ':memberID' => $user->get_user_id()
+                    ':username' => $user->get_username()
                 ));
 
                 //redirect to index page

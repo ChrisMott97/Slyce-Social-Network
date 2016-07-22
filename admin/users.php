@@ -11,8 +11,8 @@ if(isset($_GET['deluser'])){
     //if user id is 1 ignore
     if($_GET['deluser'] !='1'){
 
-        $stmt = $db->prepare('DELETE FROM members WHERE memberID = :memberID') ;
-        $stmt->execute(array(':memberID' => $_GET['deluser']));
+        $stmt = $db->prepare('DELETE FROM members WHERE username = :username') ;
+        $stmt->execute(array(':username' => $_GET['deluser']));
 
         header('Location: users.php?action=deleted');
         exit;
@@ -29,11 +29,11 @@ if(isset($_GET['deluser'])){
   <link rel="stylesheet" href="../style/normalize.css">
   <link rel="stylesheet" href="../style/main.css">
   <script language="JavaScript" type="text/javascript">
-  function deluser(id, title)
+  function deluser(u, title)
   {
       if (confirm("Are you sure you want to delete '" + title + "'"))
       {
-          window.location.href = 'users.php?deluser=' + id;
+          window.location.href = 'users.php?deluser=' + u;
       }
   }
   </script>
@@ -62,7 +62,7 @@ if(isset($_GET['deluser'])){
     <?php
         try {
 
-            $stmt = $db->query('SELECT memberID, username, firstName, lastName, email FROM members ORDER BY username');
+            $stmt = $db->query('SELECT username, firstName, lastName, email FROM members ORDER BY username');
             while($row = $stmt->fetch()){
                 
                 echo '<tr>';
@@ -73,9 +73,9 @@ if(isset($_GET['deluser'])){
                 ?>
 
                 <td>
-                    <a href="edit-user.php?id=<?php echo $row['memberID'];?>">Edit</a> 
-                    <?php if($row['memberID'] != 1){?>
-                        | <a href="javascript:deluser('<?php echo $row['memberID'];?>','<?php echo $row['username'];?>')">Delete</a>
+                    <a href="edit-user.php?u=<?php echo $row['username'];?>">Edit</a> 
+                    <?php if($row['username'] != 1){?>
+                        | <a href="javascript:deluser('<?php echo $row['username'];?>','<?php echo $row['username'];?>')">Delete</a>
                     <?php } ?>
                 </td>
                 

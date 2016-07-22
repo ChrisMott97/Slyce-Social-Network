@@ -73,27 +73,25 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                     $hashedpassword = $user->create_hash($password);
 
                     //update into database
-                    $stmt = $db->prepare('UPDATE members SET username = :username, firstName = :firstName, lastName = :lastName, password = :password, email = :email WHERE memberID = :memberID') ;
+                    $stmt = $db->prepare('UPDATE members SET username = :username, firstName = :firstName, lastName = :lastName, password = :password, email = :email WHERE username = :username') ;
                     $stmt->execute(array(
                         ':username' => $username,
                         ':firstName' => $firstName,
                         ':lastName' => $lastName,
                         ':password' => $hashedpassword,
                         ':email' => $email,
-                        ':memberID' => $memberID
                     ));
 
 
                 } else {
 
                     //update database
-                    $stmt = $db->prepare('UPDATE members SET username = :username, firstName = :firstName, lastName = :lastName, email = :email WHERE memberID = :memberID') ;
+                    $stmt = $db->prepare('UPDATE members SET username = :username, firstName = :firstName, lastName = :lastName, email = :email WHERE username = :username') ;
                     $stmt->execute(array(
                         ':username' => $username,
                         ':firstName' => $firstName,
                         ':lastName' => $lastName,
                         ':email' => $email,
-                        ':memberID' => $memberID
                     ));
 
                 }
@@ -124,8 +122,8 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
         try {
 
-            $stmt = $db->prepare('SELECT memberID, username, email FROM members WHERE memberID = :memberID') ;
-            $stmt->execute(array(':memberID' => $_GET['id']));
+            $stmt = $db->prepare('SELECT username, email FROM members WHERE username = :username') ;
+            $stmt->execute(array(':username' => $_GET['u']));
             $row = $stmt->fetch(); 
 
         } catch(PDOException $e) {
@@ -135,7 +133,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
     ?>
 
     <form action='' method='post'>
-        <input type='hidden' name='memberID' value='<?php echo $row['memberID'];?>'>
 
         <p><label>Username</label><br />
         <input type='text' name='username' value='<?php echo $row['username'];?>'></p>

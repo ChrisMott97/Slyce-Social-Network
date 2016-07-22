@@ -34,12 +34,12 @@
                 try {
                             
                     //insert into database
-                    $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,memberID,canExpand) VALUES (:postDesc, :postCont, :postDate, :memberID, :canExpand)') ;
+                    $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,username,canExpand) VALUES (:postDesc, :postCont, :postDate, :username, :canExpand)') ;
                     $stmt->execute(array(
                         ':postDesc' => $postDesc,
                         ':postCont' => $postCont,
                         ':postDate' => date('Y-m-d H:i:s'),
-                        ':memberID' => $user->get_user_id(),
+                        ':username' => $user->get_username(),
                         ':canExpand' => $canExpand
                     ));
                     
