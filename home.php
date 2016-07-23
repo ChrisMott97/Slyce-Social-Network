@@ -15,14 +15,13 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script>jQuery(function($) {$('.modal-trigger').leanModal();
-                               $(".button-collapse").sideNav();});</script>
+                               $(".button-collapse").sideNav();});
+    </script>
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
         <div class="posts">
-           <?php include('includes/createPostForm.php');?>
-            <?php
+           <?php include('includes/createPostForm.php');
                 try {
-
                     $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username ORDER BY postID DESC');
                     while($row = $stmt->fetch()){
                         echo '<div class="row">';
