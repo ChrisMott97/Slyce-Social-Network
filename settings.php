@@ -37,11 +37,15 @@ try {
     
 }
 ?>
-   <div class="biography">
+ <div class="row">
+    <div class="input-field col s6">
 <form action='' method='post'>
    Edit Bio: <input type="text" name="bio"><br>
-  <button type="submit" name="submit">Post</button>
+   <button class="btn waves-effect waves-light" type="submit" name="submit">Save Changes
+    <i class="material-icons right">send</i>
+  </button>
 </form>
+        </div>
         </div>
     
         
