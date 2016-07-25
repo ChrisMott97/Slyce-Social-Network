@@ -70,7 +70,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                 }
             ?>
                 
-                <?php
+                
+                
+            </div>
+            
+            <?php
                 try {
 
                     $stmt = $db->query('SELECT bio FROM members WHERE username="'.$user->get_username().'"');
@@ -82,8 +86,6 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                     echo $e->getMessage();
                     }
             ?>
-                
-            </div>
             <div class="profileBioLine">
                 <u>Bio</u>
                 <div class='bioContent'><?php echo $bio ?></div>

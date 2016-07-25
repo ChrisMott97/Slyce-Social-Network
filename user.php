@@ -72,9 +72,22 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                 }
             ?>
             </div>
+            
+            <?php
+                try {
+
+                    $stmt = $db->query('SELECT bio FROM members WHERE username="'.$user->get_username().'"');
+                    while($row = $stmt->fetch()){
+                        $bio = $row['bio'];
+                    }
+
+                    } catch(PDOException $e) {
+                    echo $e->getMessage();
+                    }
+            ?>
             <div class="profileBioLine">
                 <u>Bio</u>
-                <div class='bioContent'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel tellus nec sem mattis aliquet ut non sem. Sed semper.</div>
+                <div class='bioContent'><?php echo $bio ?></div>
             </div>
         </div>
         <div class="posts">
