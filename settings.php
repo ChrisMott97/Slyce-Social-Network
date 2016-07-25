@@ -37,6 +37,7 @@ try {
     
 }
 ?>
+        <div class="col s6"></div>
 <div class="col s6 center-align bio">
         <div class="row">
     <div class="input-field col s6">
@@ -49,6 +50,7 @@ try {
         </div>
         </div>
 </div>
+        <div class="col s6"></div>
     
         
     </body>
