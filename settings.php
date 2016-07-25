@@ -37,8 +37,8 @@ try {
     
 }
 ?>
-        <div class="col s6"></div>
-<div class="col s6 center-align bio">
+        <div class="wrapper">
+<div class="posts">
         <div class="row">
     <div class="input-field col s6">
 <form action='' method='post'>
@@ -47,10 +47,10 @@ try {
     <i class="material-icons right">send</i>
   </button>
 </form>
+            </div>
         </div>
         </div>
 </div>
-        <div class="col s6"></div>
     
         
     </body>
