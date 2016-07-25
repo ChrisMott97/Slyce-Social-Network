@@ -72,7 +72,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             </div>
             <div class="profileBioLine">
                 <u>Bio</u>
-                <div class='bioContent'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel tellus nec sem mattis aliquet ut non sem. Sed semper.</div>
+                <div class='bioContent'><?php echo $_POST['bio'] ?></div>
             </div>
         </div>
         <div class="posts">
