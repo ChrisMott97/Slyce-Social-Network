@@ -37,7 +37,7 @@ try {
     
 }
 ?>
-<div class="col s6 center-align">
+<div class="col s6 center-align bio">
         <div class="row">
     <div class="input-field col s6">
 <form action='' method='post'>
