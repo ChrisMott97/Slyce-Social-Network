@@ -37,6 +37,7 @@ try {
     
 }
 ?>
+        <div class="post">
  <div class="row">
     <div class="input-field col s6">
 <form action='' method='post'>
@@ -45,6 +46,7 @@ try {
     <i class="material-icons right">send</i>
   </button>
 </form>
+        </div>
         </div>
         </div>
     
