@@ -76,7 +76,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT bio FROM members WHERE username="'.$user->get_username().'"');
+                    $stmt = $db->query('SELECT bio FROM members WHERE username="'.$uname.'"');
                     while($row = $stmt->fetch()){
                         $bio = $row['bio'];
                     }
