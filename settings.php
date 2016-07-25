@@ -37,8 +37,8 @@ try {
     
 }
 ?>
-        <div class="post">
- <div class="row">
+<div class="post">
+        <div class="row">
     <div class="input-field col s6">
 <form action='' method='post'>
    Edit Bio: <input type="text" name="bio"><br>
@@ -48,7 +48,7 @@ try {
 </form>
         </div>
         </div>
-        </div>
+</div>
     
         
     </body>
