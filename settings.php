@@ -40,7 +40,7 @@ try {
         <div class="wrapper">
 <div class="posts">
         <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12">
 <form action='' method='post'>
    Edit Bio: <input type="text" name="bio"><br>
    <button class="btn waves-effect waves-light" type="submit" name="submit">Save Changes
