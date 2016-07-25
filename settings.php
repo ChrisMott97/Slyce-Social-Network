@@ -8,50 +8,32 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 
 <html>
 <head>
-    
     <title> Settings </title>
     <link rel="stylesheet" href="style/main.css">
-<link rel="stylesheet" href="style/materialize.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    
-    <body>
-    
+    <link rel="stylesheet" href="style/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<?php include('includes/navigation.php');?>
-        
-        <?php
-if(isset($_POST['submit'])){ 
-
-try {
-  $stmt = $db->prepare('UPDATE members SET bio = :bio WHERE username = "'.$user->get_username().'"'); 
-  $stmt->execute(array(
-     ':bio' => $_POST['bio']
-  ));
-  //redirect to profile page
-  header('Location: profile.php');
-  exit;
-} catch(PDOException $e) {
-  echo $e->getMessage();
-}
-    
-}
-?>
-        <div class="wrapper">
-<div class="posts">
-        <div class="row">
-    <div class="input-field col s12">
-<form action='' method='post'>
-   Edit Bio: <input type="text" name="bio"><br>
-   <button class="btn waves-effect waves-light" type="submit" name="submit">Save Changes
-    <i class="material-icons right">send</i>
-  </button>
-</form>
-            </div>
+    <script src="js/materialize.js"></script>
+    <script>jQuery(function($) {$('.modal-trigger').leanModal();
+                               $(".button-collapse").sideNav();
+                             $('ul.tabs').tabs();});</script>
+    <?php include('includes/navigation.php');?>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" onclick="$('#editbio').fadeIn(1000)" href="#editbio">Edit Bio</a></li>
+                <li class="tab col s3"><a href="#test2">Privacy</a></li>
+                <li class="tab col s3 disabled"><a href="#test3">Colours</a></li>
+                <li class="tab col s3 disabled "><a href="#test4">Other</a></li>
+            </ul>
         </div>
-        </div>
+  <div id="editbio" class="col s12"><?php include('settings/editbio.php');?></div>
+  <div id="test2" class="col s12"></div>
+  <div id="test3" class="col s12"></div>
+  <div id="test4" class="col s12"></div>
 </div>
-    
-        
-    </body>
+
+</body>
 </html>
