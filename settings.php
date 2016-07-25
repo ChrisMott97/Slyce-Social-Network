@@ -12,6 +12,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
