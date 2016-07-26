@@ -25,7 +25,8 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 
     <div id="wrapper">
         <?php include('includes/navigation.php');?>
-        <div class="posts">
+        <div class="row">
+        <div class="col s12 l8 offset-l2 posts">
             <?php
                 try {
                     $stmt = $db->query('SELECT firstName, lastName, username, profilePicture FROM members ORDER BY username ASC');
@@ -44,6 +45,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                     echo $e->getMessage();
                 }
             ?>
+        </div>
         </div>
     </div>
 
