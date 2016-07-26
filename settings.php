@@ -9,6 +9,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
 <html>
 <head>
     <title> Settings </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
