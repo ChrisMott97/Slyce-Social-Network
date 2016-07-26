@@ -96,7 +96,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username WHERE members.username="'.$user->get_username().'" ORDER BY postID DESC');
+                    $stmt = $db->query('SELECT members.username postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username WHERE members.username="'.$user->get_username().'" ORDER BY postID ASC');
                     while($row = $stmt->fetch()){
                         echo '<div class="row">';
                             echo '<div class="col s12 m12">';
