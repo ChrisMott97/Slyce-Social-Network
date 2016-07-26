@@ -35,62 +35,48 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <script>jQuery(function($) {$('.modal-trigger').leanModal();
                                $(".button-collapse").sideNav();});</script>
 
-    <div id="wrapper">
-        <?php include('includes/navigation.php');?>
-        <?php 
-        $uname = $_GET['u'];?>
-        <div id="profileHeader_1">
-            <?php
+<?php include('includes/navigation.php');
+    $uname = $_GET['u'];?>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 l10 offset-l1 profileHeader_1 center-align">
+                <?php
                 try {
-
-                    $stmt = $db->query('SELECT profilePicture FROM members WHERE username="'.$uname.'"');
+                    $stmt = $db->query('SELECT firstName, lastName, username, bio, profilePicture FROM members WHERE username="'.$uname.'"');
                     while($row = $stmt->fetch()){
                         $dp = "images/profilepics/".$row['profilePicture'];
-                    }
-
-                    } catch(PDOException $e) {
-                    echo $e->getMessage();
-                    }
-            ?>
-            <div class='profilePic circle' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div>
-            <div class='profileLine'>
-            <?php
-                try {
-
-                    $stmt = $db->query('SELECT firstName, lastName, username FROM members WHERE username="'.$uname.'"');
-                    while($row = $stmt->fetch()){
-                        echo '<div id="profileName">';
-                            echo '<b>'.$row['firstName'].' '.$row['lastName'].'</b>';
-                        echo '</div>';
-                        echo '<div id="profileUserName">';
-                            echo '<p>'.$row['username'].'</p>';               
-                        echo '</div>';
-                    }
-
-                } catch(PDOException $e) {
-                    echo $e->getMessage();
-                }
-            ?>
-            </div>
-            
-            <?php
-                try {
-
-                    $stmt = $db->query('SELECT bio FROM members WHERE username="'.$uname.'"');
-                    while($row = $stmt->fetch()){
                         $bio = $row['bio'];
+                        $firstname = $row['firstName'];
+                        $lastname = $row['lastName'];
+                        $username = $row['username'];
                     }
 
                     } catch(PDOException $e) {
                     echo $e->getMessage();
                     }
-            ?>
-            <div class="profileBioLine">
-                <u>Bio</u>
-                <div class='bioContent'><?php echo $bio ?></div>
-            </div>
+                ?>
+                <div class="row">
+                    <div class='col s12 l3 hide-on-small-only'><div class='profilePic circle' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div></div>
+                    <div class='col s3 offset-s5 l3 hide-on-med-and-up'><div class='profilePic2 circle' style="background:url(<?php echo $dp; ?>); background-size: contain;"></div></div>
+                    <div class='col s12 l9' id="pushdown">
+                        <div class="col s6 profileName">
+                            <b><?php echo $firstname.' '.$lastname; ?></b>
+                        </div>
+                        <div class="col s6 profileUserName">
+                            <p><?php echo $username; ?></p>              
+                        </div>
+                        <div class="col s12 profileBioLine">
+                            <div class="divider"></div>
+                            <u>Bio</u>
+                            <div class='bioContent'><?php echo $bio ?></div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
         </div>
-        <div class="posts">
+        </div>
+        <div class="row">
+        <div class="col s12 l6 offset-l1 posts">
             <?php
                 try {
 
@@ -132,6 +118,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                 }
             ?>
         </div>
+    </div>
     </div>
 
 
