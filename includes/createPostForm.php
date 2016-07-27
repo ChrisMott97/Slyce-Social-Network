@@ -130,7 +130,7 @@
                   <textarea name="postCont" id="textarea1" class="materialize-textarea"><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea>
                   <label for="textarea1">Post</label>
                 </div>
-                <button id="postbutton" class="btn waves-effect waves-light" type="submit" name="submit">Post<i class="material-icons right">send</i></button>
+                <button id="postbutton" class="btn waves-effect waves-light right" type="submit" name="submit">Post<i class="material-icons right">send</i></button>
             </div>
         </form>
     </div>                      

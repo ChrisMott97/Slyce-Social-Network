@@ -1,5 +1,5 @@
 <script>
-$("#editbio").hide().fadeIn(1000);
+$("#editbio").hide().fadeIn(750);
 </script>
 <?php
 if(isset($_POST['submit'])){
