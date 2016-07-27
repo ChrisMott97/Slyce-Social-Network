@@ -36,6 +36,7 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                                $(".button-collapse").sideNav();});</script>
 
 <?php include('includes/navigation.php');
+    include('includes/likes.php');
     $uname = $_GET['u'];?>
     <div class="container">
         <div class="row">
@@ -91,7 +92,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
                                     echo '<div class="card-action">';
-                                        echo '<a href="#"><i class="material-icons">thumb_up</i></a>';
+                                        if (checkExists($row['postID'])==""){
+                                                echo '<a href="?u='.$uname.'&like='.$row['postID'].'"><i class="material-icons tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i></a>';
+                                            } else {
+                                                echo '<i class="material-icons disabled tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i>';
+                                            }
                                         if ($row['canExpand'] == 1) {
                                             //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
                                             echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';

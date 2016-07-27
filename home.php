@@ -18,39 +18,7 @@
                                $(".button-collapse").sideNav();});
     </script>
     <?php include('includes/navigation.php');
-    function checkExists($postIDvar, $dbe, $usere){
-        try {
-            $stmtLike = $dbe->query('SELECT username, postID FROM likes WHERE username="'.$usere->get_username().'" AND postID='.$postIDvar.'');
-            $rowLike = $stmtLike->fetch();
-            return $rowLike;
-        } catch(PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
-    
-    
-    if(isset($_GET['like'])){
-        $likePost = $_GET['like'];
-        if(checkExists($likePost, $db, $user)==""){
-            try {
-            $stmtLike = $db->prepare('INSERT INTO likes (username, postID) VALUES (:username, :postID)');
-            $stmtLike->execute(array(
-                    ':username' => $user->get_username(),
-                    ':postID' => $likePost
-                ));
-                header("Refresh:0");
-                exit;
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-        } else {
-            
-        }
-    } else {
-        
-    }
-    
-    ?>
+    include('includes/likes.php');?>
     <div class="container">
         <div class="row">
             <div class="col l6 s12 offset-l3 posts">
@@ -67,10 +35,10 @@
                                             echo '<p>'.$row['postDesc'].'</p>';
                                         echo '</div>';
                                         echo '<div class="card-action">';
-                                            if (checkExists($row['postID'], $db, $user)==""){
-                                                echo '<a href="?like='.$row['postID'].'"><i class="material-icons tooltipped" data-position="left" data-delay=50 data-tooltip="Like!">thumb_up</i></a>';
+                                            if (checkExists($row['postID'])==""){
+                                                echo '<a href="?like='.$row['postID'].'"><i class="material-icons tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i></a>';
                                             } else {
-                                                echo '<i class="material-icons disabled">thumb_up</i>';
+                                                echo '<i class="material-icons disabled tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i>';
                                             }
                                             
                                             if ($row['canExpand'] == 1) {

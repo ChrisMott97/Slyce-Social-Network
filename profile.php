@@ -34,7 +34,8 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <script src="js/materialize.js"></script>
     <script>jQuery(function($) {$('.modal-trigger').leanModal();
                                $(".button-collapse").sideNav();});</script>
-    <?php include('includes/navigation.php');?>
+    <?php include('includes/navigation.php');
+    include('includes/likes.php');?>
     <div class="container">
         <div class="row">
             <div class="col s12 l10 offset-l1 profileHeader_1 center-align">
@@ -90,7 +91,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
                                         echo '<p>'.$row['postDesc'].'</p>';
                                     echo '</div>';
                                     echo '<div class="card-action">';
-                                        echo '<a href="#"><i class="material-icons">thumb_up</i></a>';
+                                        if (checkExists($row['postID'])==""){
+                                                echo '<a href="?like='.$row['postID'].'"><i class="material-icons tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i></a>';
+                                            } else {
+                                                echo '<i class="material-icons disabled tooltipped" data-position="left" data-delay=50 data-tooltip="'.countLikes($row['postID']).'">thumb_up</i>';
+                                            }
                                         if ($row['canExpand'] == 1) {
                                             //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
                                             echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';
