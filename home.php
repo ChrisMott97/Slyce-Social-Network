@@ -17,7 +17,40 @@
     <script>jQuery(function($) {$('.modal-trigger').leanModal();
                                $(".button-collapse").sideNav();});
     </script>
-    <?php include('includes/navigation.php');?>
+    <?php include('includes/navigation.php');
+    function checkExists($postIDvar, $dbe, $usere){
+        try {
+            $stmtLike = $dbe->query('SELECT username, postID FROM likes WHERE username="'.$usere->get_username().'" AND postID='.$postIDvar.'');
+            $rowLike = $stmtLike->fetch();
+            return $rowLike;
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    
+    if(isset($_GET['like'])){
+        $likePost = $_GET['like'];
+        if(checkExists($likePost, $db, $user)==""){
+            try {
+            $stmtLike = $db->prepare('INSERT INTO likes (username, postID) VALUES (:username, :postID)');
+            $stmtLike->execute(array(
+                    ':username' => $user->get_username(),
+                    ':postID' => $likePost
+                ));
+                header("Refresh:0");
+                exit;
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            
+        }
+    } else {
+        
+    }
+    
+    ?>
     <div class="container">
         <div class="row">
             <div class="col l6 s12 offset-l3 posts">
@@ -34,7 +67,12 @@
                                             echo '<p>'.$row['postDesc'].'</p>';
                                         echo '</div>';
                                         echo '<div class="card-action">';
-                                            echo '<a href="#"><i class="material-icons">thumb_up</i></a>';
+                                            if (checkExists($row['postID'], $db, $user)==""){
+                                                echo '<a href="?like='.$row['postID'].'"><i class="material-icons tooltipped" data-position="left" data-delay=50 data-tooltip="Like!">thumb_up</i></a>';
+                                            } else {
+                                                echo '<i class="material-icons disabled">thumb_up</i>';
+                                            }
+                                            
                                             if ($row['canExpand'] == 1) {
                                                 //echo '<a href="viewpost.php?id='.$row['postID'].'">Expand</a>';
                                                 echo '<a href="#modal'.$row['postID'].'" class="modal-trigger">Expand</a>';
