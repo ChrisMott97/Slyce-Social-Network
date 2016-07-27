@@ -1,6 +1,6 @@
- <div class="navbar-fixed">
+ <div class="navbar-fixed blue-grey">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper blue-grey">
         <a href="#!" class="brand-logo center">Slyce</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
@@ -10,7 +10,7 @@
             <li><a href="settings.php"><i class="material-icons">settings</i></a></li>
           <li><a href="admin/logout.php"><i class="material-icons">exit_to_app</i></a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav blue-grey" id="mobile-demo">
           <li><a href="./index.php">Public Wall</a></li>
           <li><a href="./profile.php">Profile</a></li>
             <li><a href="./search.php">Search</a></li>
