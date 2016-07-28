@@ -4,19 +4,6 @@ require_once('includes/config.php');
 
 //if not logged in redirect to login page
 if(!$user->is_logged_in()){ header('Location: index.php'); }
-
-/*try {
-
-    $stmt = $db->prepare('SELECT firstName FROM members WHERE memberID=:theid');
-    $stmt->execute(array('theid' => $user->get_user_id()));
-    $row = $stmt->fetch();
-                    
-    echo '<h1>Hello, '.$row["firstName"].'</h1>';
-
-    } catch(PDOException $e) {
-        echo $e->getMessage();
-    } */
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
