@@ -35,20 +35,23 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
     <script>jQuery(function($) {$('.modal-trigger').leanModal();
                                $(".button-collapse").sideNav();});</script>
     <?php include('includes/navigation.php');
-    include('includes/likes.php');?>
+    include('includes/likes.php');
+    $username = $user->get_username();?>
     <div class="container">
         <div class="row">
             <div class="col s12 l10 offset-l1 profileHeader_1 center-align">
                 <?php
                 try {
-                    $stmt = $db->query('SELECT firstName, lastName, username, bio, profilePicture FROM members WHERE username="'.$user->get_username().'"');
-                    while($row = $stmt->fetch()){
-                        $dp = "images/profilepics/".$row['profilePicture'];
-                        $bio = $row['bio'];
-                        $firstname = $row['firstName'];
-                        $lastname = $row['lastName'];
-                        $username = $row['username'];
-                    }
+                    $stmt = $db->prepare('SELECT firstName, lastName, username, bio, profilePicture FROM members WHERE username=:username');
+                    $stmt->bindValue(':username', $username);
+                    $stmt->execute();
+                    $row = $stmt->fetch();
+                    
+                    $dp = "images/profilepics/".$row['profilePicture'];
+                    $bio = $row['bio'];
+                    $firstname = $row['firstName'];
+                    $lastname = $row['lastName'];
+                    $username = $row['username'];
 
                     } catch(PDOException $e) {
                     echo $e->getMessage();
@@ -80,8 +83,11 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
             <?php
                 try {
 
-                    $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username WHERE members.username="'.$user->get_username().'" ORDER BY postID DESC');
-                    while($row = $stmt->fetch()){
+                    $stmt = $db->prepare('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username WHERE members.username=:username ORDER BY postID DESC');
+                    $stmt->bindValue(':username', $user->get_username());
+                    $stmt->execute();
+                    $result = $stmt->fetchAll();
+                    foreach($result as $row){
                         echo '<div class="row">';
                             echo '<div class="col s12 m12">';
                                 echo '<div class="card">';

@@ -4,10 +4,11 @@ $("#editbio").hide().fadeIn(750);
 <?php
 if(isset($_POST['submit'])){
     try {
-        $stmt = $db->prepare('UPDATE members SET bio = :bio WHERE username = "'.$user->get_username().'"');
-        $stmt->execute(array(
-            ':bio' => $_POST['bio']
-        ));
+        $stmt = $db->prepare('UPDATE members SET bio = :bio WHERE username = :username');
+        $stmt->bindValue(':username', $user->get_username());
+        $stmt->bindValue(':bio', $_POST['bio']);
+        $stmt->execute();
+        
         //redirect to profile page
         header('Location: profile.php');
         exit;

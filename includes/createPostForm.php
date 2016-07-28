@@ -3,7 +3,9 @@
     //When the user accepts the rules, db is updated to show they're not a new user anymore
     if(isset($_POST['accept'])){
         try {
-            $stmt = $db->prepare('UPDATE members SET isNew = 0 WHERE username="'.$user->get_username().'"');
+            $stmt = $db->prepare('UPDATE members SET isNew = :isNew WHERE username=:username');
+            $stmt->bindValue(':username', $user->get_username());
+            $stmt->bindValue(':isNew', 0);
             $stmt->execute();
             $isNew = 0;
         } catch(PDOException $e) {
@@ -44,13 +46,12 @@
             try {       
                 //insert into database
                 $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,username,canExpand) VALUES (:postDesc, :postCont, :postDate, :username, :canExpand)') ;
-                $stmt->execute(array(
-                    ':postDesc' => $postDesc,
-                    ':postCont' => $postCont,
-                    ':postDate' => date('Y-m-d H:i:s'),
-                    ':username' => $user->get_username(),
-                    ':canExpand' => $canExpand
-                ));
+                $stmt->bindValue(':postDesc', $postDesc);
+                $stmt->bindValue(':postCont', $postCont);
+                $stmt->bindValue(':postDate', date('Y-m-d H:i:s'));
+                $stmt->bindValue(':username', $user->get_username());
+                $stmt->bindValue(':canExpand', $canExpand);
+                $stmt->execute();
                     
                 //redirect to index page
                 header("Refresh:0");
@@ -74,7 +75,9 @@
     <script>
         <?php
             try {
-                $stmt = $db->query('SELECT isNew FROM members WHERE username="'.$user->get_username().'"');
+                $stmt = $db->prepare('SELECT isNew FROM members WHERE username=:username');
+                $stmt->bindValue(':username', $user->get_username());
+                $stmt->execute();
                 $row = $stmt->fetch();
                 $isNew = $row['isNew'];
             }catch(PDOException $e) {

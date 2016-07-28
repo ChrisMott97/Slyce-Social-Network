@@ -29,8 +29,10 @@ if(!$user->is_logged_in()){ header('Location: index.php'); }
         <div class="col s12 l8 offset-l2 posts">
             <?php
                 try {
-                    $stmt = $db->query('SELECT firstName, lastName, username, profilePicture FROM members ORDER BY username ASC');
-                    while($row = $stmt->fetch()){
+                    $stmt = $db->prepare('SELECT firstName, lastName, username, profilePicture FROM members ORDER BY username ASC');
+                    $stmt->execute();
+                    $result = $stmt->fetchAll();
+                    foreach($result as $row){
                         echo '<ul class="collection">';
                             echo '<li class="collection-item avatar">';
                             echo '<img src="images/profilepics/'.$row["profilePicture"].'" alt="" class="circle">';

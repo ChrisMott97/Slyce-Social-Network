@@ -24,8 +24,10 @@
             <div class="col l6 s12 offset-l3 posts">
                <?php include('includes/createPostForm.php');
                     try {
-                        $stmt = $db->query('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username ORDER BY postID DESC');
-                        while($row = $stmt->fetch()){
+                        $stmt = $db->prepare('SELECT members.username, postID, postDesc, postDate, canExpand, postCont FROM members INNER JOIN posts ON members.username = posts.username ORDER BY postID DESC');
+                        $stmt->execute();
+                        $result = $stmt->fetchAll();
+                        foreach($result as $row){
                             echo '<div class="row">';
                                 echo '<div class="col s12 m12">';
                                     echo '<div class="card">';
