@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
 body {
-    background-image:url(../images/background.jpg);
+    background-image:url(images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 90%;
