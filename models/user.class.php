@@ -16,7 +16,15 @@ class User{
     }
     
     public function get_username(){
-        return $_SESSION['username'];
+        $stmt = $this->db->prepare('SELECT username FROM users WHERE userid = :userid');
+            $stmt->bindValue(':userid', $_SESSION['userid']);
+            $stmt->execute();
+            $row = $stmt->fetch();
+        return $row['username'];
+    }
+    
+    public function get_userid(){
+        return $_SESSION['userid'];
     }
 
     public function create_hash($value)
@@ -35,7 +43,7 @@ class User{
 
             //echo $this->create_hash('demo');
 
-            $stmt = $this->db->prepare('SELECT password FROM members WHERE email = :email');
+            $stmt = $this->db->prepare('SELECT password FROM users WHERE email = :email');
             $stmt->bindValue(':email', $email);
             $stmt->execute();
             
@@ -55,11 +63,12 @@ class User{
         if($this->verify_hash($password,$hashed) == 1){
             
             $_SESSION['loggedin'] = true;
-            $stmt = $this->db->prepare('SELECT username FROM members WHERE email = :email');
+            
+            $stmt = $this->db->prepare('SELECT userid FROM users WHERE email = :email');
             $stmt->bindValue(':email', $email);
             $stmt->execute();
             $row = $stmt->fetch();
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['userid'] = $row['userid'];
             return true;
         }        
     }

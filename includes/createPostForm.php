@@ -3,11 +3,11 @@
     //When the user accepts the rules, db is updated to show they're not a new user anymore
     if(isset($_POST['accept'])){
         try {
-            $stmt = $db->prepare('UPDATE members SET isNew = :isNew WHERE username=:username');
-            $stmt->bindValue(':username', $user->get_username());
-            $stmt->bindValue(':isNew', 0);
+            $stmt = $db->prepare('UPDATE members SET isnew = :isnew WHERE userid=:userid');
+            $stmt->bindValue(':userid', $user->get_userid());
+            $stmt->bindValue(':isnew', 0);
             $stmt->execute();
-            $isNew = 0;
+            $isnew = 0;
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
@@ -18,7 +18,7 @@
     if(isset($_POST['submit'])){
         
         $_POST = array_map( 'stripslashes', $_POST );
-        $canExpand = 0;
+        $canexpand = 0;
             
         function truncate($string,$length=300,$append="&hellip;") {
             $string = trim($string);
@@ -27,30 +27,30 @@
                 $string = wordwrap($string, $length);
                 $string = explode("\n", $string, 2);
                 $string = $string[0] . $append;
-                $GLOBALS['canExpand']=1;
+                $GLOBALS['canexpand']=1;
             }                        
             return $string;
         }
             
         //collect form data
-        $postCont = $_POST['postCont'];
-        $postDesc = truncate($postCont);
+        $postcont = $_POST['postcont'];
+        $postcont = truncate($postcont);
 
         //very basic validation
             
-        if($postCont ==''){
+        if($postcont ==''){
             $error[] = 'Please enter the content.';
         }
 
         if(!isset($error)){
             try {       
                 //insert into database
-                $stmt = $db->prepare('INSERT INTO posts (postDesc,postCont,postDate,username,canExpand) VALUES (:postDesc, :postCont, :postDate, :username, :canExpand)') ;
-                $stmt->bindValue(':postDesc', $postDesc);
-                $stmt->bindValue(':postCont', $postCont);
-                $stmt->bindValue(':postDate', date('Y-m-d H:i:s'));
-                $stmt->bindValue(':username', $user->get_username());
-                $stmt->bindValue(':canExpand', $canExpand);
+                $stmt = $db->prepare('INSERT INTO posts (postdesc, postcont, postdate, userid, canexpand) VALUES (:postdesc, :postcont, :postdate, :userid, :canexpand)') ;
+                $stmt->bindValue(':postdesc', $postdesc);
+                $stmt->bindValue(':postcont', $postcont);
+                $stmt->bindValue(':postdate', date('Y-m-d H:i:s'));
+                $stmt->bindValue(':userid', $user->get_userid());
+                $stmt->bindValue(':canexpand', $canexpand);
                 $stmt->execute();
                     
                 //redirect to index page
@@ -75,18 +75,18 @@
     <script>
         <?php
             try {
-                $stmt = $db->prepare('SELECT isNew FROM members WHERE username=:username');
-                $stmt->bindValue(':username', $user->get_username());
+                $stmt = $db->prepare('SELECT isnew FROM users WHERE userid=:userid');
+                $stmt->bindValue(':userid', $user->get_userid());
                 $stmt->execute();
                 $row = $stmt->fetch();
-                $isNew = $row['isNew'];
+                $isnew = $row['isnew'];
             }catch(PDOException $e) {
                 echo $e->getMessage();
             }
         ?>
         $(document).ready (function(){
-            var isNew=<?php echo json_encode($isNew);?>;
-            if (isNew == 1){
+            var isnew=<?php echo json_encode($isnew);?>;
+            if (isnew == 1){
                 //$("#postbutton").attr({"class":"btn disabled"});
                 //$("#postbutton").prop("disabled", true);
                 $('#rules').openModal();
@@ -105,7 +105,7 @@
             $("#rulesbutton").attr({"id":"postbutton"});
             $("#postbutton").text("Post");
             $("#postbutton").attr({"type":"submit","name":"submit","class":"btn waves-effect waves-light"});
-            isNew=0;
+            isnew=0;
         });
         
     </script>
@@ -130,7 +130,7 @@
         <form class="col s12" action='' method='post'>
             <div class="row">
                 <div class="input-field col s12">
-                  <textarea name="postCont" id="textarea1" class="materialize-textarea"><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea>
+                  <textarea name="postCont" id="textarea1" class="materialize-textarea"><?php if(isset($error)){ echo $_POST['postcont'];}?></textarea>
                   <label for="textarea1">Post</label>
                 </div>
                 <button id="postbutton" class="btn waves-effect waves-light right" type="submit" name="submit">Post<i class="material-icons right">send</i></button>

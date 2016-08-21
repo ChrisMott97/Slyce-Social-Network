@@ -1,15 +1,15 @@
 <?php require('includes/config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>Slyce Wall</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style/main.css">
     <link type="text/css" rel="stylesheet" href="style/materialize.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    
 </head>
 <body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -18,7 +18,7 @@
                                $(".button-collapse").sideNav();});
     </script>
     <?php include('includes/navigation.php');
-    include('includes/likes.php');?>
+    //include('includes/likes.php');?> 
     <div class="container">
         <div class="row">
             <div class="col l6 s12 offset-l3 posts">
