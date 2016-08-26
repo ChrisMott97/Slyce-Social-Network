@@ -1,16 +1,5 @@
-<?php require_once('includes/config.php');
+<?php
 
-//check if already logged in
-if( $user->is_logged_in() ){ header('Location: home.php'); } ?>
-<html>
+require 'includes/setup.php';
 
-    <head>
-        <?php require('includes/header.php'); ?>
-            <title>Slyce</title>
-    </head>
-
-    <body>
-        <?php require('views/index.view.php'); ?>
-    </body>
-
-</html>
+require 'views/index.view.php';

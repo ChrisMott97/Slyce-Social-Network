@@ -1,9 +1,0 @@
-$(document).ready(function(){
-    $("h1").hide().fadeIn(3000);
-    $("h2").hide().delay(500).fadeIn(1000);
-    $(".mastfoot").hide().delay(500).fadeIn(1000);
-    $(".allbtns").click(function(){
-        $("h2").fadeOut(300)
-        $("#login").delay(600).fadeIn(2000);
-    });
-});
