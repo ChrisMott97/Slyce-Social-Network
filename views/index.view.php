@@ -11,7 +11,7 @@
             <span class="center title"><h1>Slyce</h1></span>
         </div>
         <div class='row'>
-            <div class='col s4 offset-s4 main'>
+            <div class='col s12 l4 offset-l4 main'>
                 <div class="card-panel">
                     <div class="row">
                         <form class="col s12" method="post">

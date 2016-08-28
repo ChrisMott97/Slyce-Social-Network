@@ -8,7 +8,7 @@ if(isset($_POST['email'])){
 }
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-    header("Refresh:0; url=home.php");
+    header('Location: home.php');
 }
 
 require 'views/index.view.php';

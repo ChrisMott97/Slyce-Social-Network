@@ -34,7 +34,7 @@ class Auth
         $_SESSION['userid'] = false;
         session_unset();
         session_destroy();
-        header('Location: /index.php');
+        header('Location: index.php');
     }
     
     public function fetchUser(){
