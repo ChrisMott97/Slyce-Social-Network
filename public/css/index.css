@@ -4,3 +4,10 @@ body{
     background-size: cover;
     background-position: center;
 }
+.title {
+    color: white;
+}
+
+.main {
+    margin-top: 70px;
+}
