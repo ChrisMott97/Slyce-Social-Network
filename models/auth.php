@@ -9,8 +9,8 @@ class Auth
     }
     
     public function login($email, $password){
-        $hashed = $this->query->fetchPassword();
-        if($hashed && password_verify($password, $hashed)){
+        $hashed = $this->query->fetchPassword($email);
+        if(!empty($hashed) && password_verify($password, $hashed)){
             $_SESSION['userid'] = $this->query->emailToID($email);
             $_SESSION['loggedin'] = true;
             return true;
