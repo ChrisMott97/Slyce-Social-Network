@@ -24,6 +24,13 @@ class QueryBuilder
         return $row['userid'];
     }
     
+    public function idToUsername($userid){
+        $stmt = $this->db->prepare('SELECT username FROM users WHERE userid = :userid');
+        $stmt->bindParam(':userid', $userid);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row['username'];
+    }
     
     public function findUser($userid){
         $stmt = $this->db->prepare('SELECT * FROM users WHERE userid = :userid');
@@ -34,7 +41,7 @@ class QueryBuilder
     }
     
     public function allPosts(){
-        $stmt = $this->db->prepare('SELECT * FROM posts');
+        $stmt = $this->db->prepare('SELECT * FROM posts ORDER BY postid DESC');
         $stmt->execute();
         return $stmt->fetchAll();
     }

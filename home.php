@@ -10,6 +10,7 @@ if(isset($_POST['submit'])){
     $newpost = new Post($user);
     $newpost->setNew($_POST['postcont']);
     $query->pushPost($newpost);
+    header('Refresh:0');
 }
 
 $posts = $query->allPosts();
@@ -17,7 +18,7 @@ $posts = $query->allPosts();
 $i=0;
 foreach ($posts as $post){
     //$readpost[$i] = $post;
-    $readpost[$i] = new Post();
+    $readpost[$i] = new Post(null, $query);
     $readpost[$i]->setRead(
         $post['postid'],
         $post['userid'],

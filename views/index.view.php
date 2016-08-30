@@ -2,7 +2,8 @@
 
 <head>
     <?php require('includes/header.php'); ?>
-        <link rel='stylesheet' type='text/css' href='public/css/index.css'>
+    <link rel='stylesheet' type='text/css' href='public/css/index.css'>
+    <title>Slyce</title>
 </head>
 
 <body>

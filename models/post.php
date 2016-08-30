@@ -10,9 +10,12 @@ class Post
     private $postdate;
     
     private $user;
+    private $query;
     
-    public function __construct($user = null){
+    public function __construct($user = null, $query = null){
         $this->user = $user;
+        $this->query = $query;
+        
     }
     
     public function setNew($postcont){
@@ -56,5 +59,8 @@ class Post
         return $this->postdate;
     }
     
+    public function getPostUsername(){
+        return $this->query->idToUsername($this->getUserID());
+    }
     
 }
