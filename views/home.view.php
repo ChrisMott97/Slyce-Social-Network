@@ -5,13 +5,22 @@
 </head>
 
 <body>
-   <?php require('includes/nav.php'); ?>
-    <div class='container'>
-        <div class="row main">
-            <span class="center title"><h1>Home Page!</h1></span>
+    <?php require('includes/nav.php'); ?>
+        <div class='container'>
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <?php require('includes/createpost.php'); ?>
+                    <?php foreach ($readpost as $post): ?>
+                        <div class="row">
+                           <div class="card">
+                               <?= $post->getPostCont(); ?>
+                           </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
-    </div>
-    <?php require('includes/footer.php'); ?>
+        <?php require('includes/footer.php'); ?>
 </body>
 
 </html>

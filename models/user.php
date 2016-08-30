@@ -9,6 +9,7 @@ class User {
     private $isadmin;
     private $isnew;
     private $bio;
+    private $password;
     
     public function getUsername(){
         return $this->username;

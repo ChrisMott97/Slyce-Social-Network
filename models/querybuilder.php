@@ -24,6 +24,7 @@ class QueryBuilder
         return $row['userid'];
     }
     
+    
     public function findUser($userid){
         $stmt = $this->db->prepare('SELECT * FROM users WHERE userid = :userid');
         $stmt->bindParam(':userid', $userid);
@@ -31,4 +32,24 @@ class QueryBuilder
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetch();
     }
+    
+    public function allPosts(){
+        $stmt = $this->db->prepare('SELECT * FROM posts');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    
+    public function pushPost($post){
+        $stmt = $this->db->prepare('INSERT INTO 
+        posts (userid, postcont, postdesc, canexpand, postdate) 
+        VALUES(:userid, :postcont, :postdesc, :canexpand, :postdate)');
+        $stmt->bindParam(':userid', $post->getUserID());
+        $stmt->bindParam(':postcont', $post->getPostCont());
+        $stmt->bindParam(':postdesc', $post->getPostDesc());
+        $stmt->bindParam(':canexpand', $post->getCanExpand());
+        $stmt->bindParam(':postdate', $post->getPostDate());
+        $stmt->execute();
+    }
+    
+    
 }

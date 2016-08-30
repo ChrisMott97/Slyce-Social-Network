@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="row center">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                                <button class="btn waves-effect waves-light" type="submit" name="submit">Login
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
