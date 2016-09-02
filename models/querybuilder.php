@@ -81,6 +81,13 @@ class QueryBuilder
         return $stmt->fetchAll();
     }
     
+    public function updateUser($userid, $property, $value){
+        $stmt = $this->db->prepare('UPDATE users SET '.$property.' = :value WHERE userid = :userid');
+        $stmt->bindParam(':value', $value);
+        $stmt->bindParam(':userid', $userid);
+        $stmt->execute();
+    }
+    
     public function pushPost($post){
         $stmt = $this->db->prepare('INSERT INTO 
         posts (userid, postcont, postdesc, canexpand, postdate) 
