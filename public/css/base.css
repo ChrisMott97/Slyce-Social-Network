@@ -2,11 +2,15 @@
 .profile {
     height: 300px;
     margin-right: 30px;
+    text-align: center;
 }
-.rotate {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+.profilepic{
+    background-image: url(../img/profile.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 260px;
+    height: 260px;
+    margin-left: auto;
+    margin-right: auto;
 }

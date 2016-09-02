@@ -11,9 +11,13 @@
         <div class="row">
             <div class="col l3 s12 offset-l1 profile">
                 <div class="row">
-                    <div class="card-panel center profile">
-                        <div class="row"><?= $viewuser->getUsername(); ?></div>
-                        <div class="row"></div>
+                   <div class="card"><h4><?= $viewuser->getUsername();?></h4></div>
+               </div>
+                <div class="row">
+                    <div class="card-panel profile">
+                        <div class="row">
+                            <div class="profilepic"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -26,7 +30,7 @@
                 </div>
             </div>
             <div class="col l6 s12">
-                <?php foreach ($readpost as $post): ?>
+                <?php if(isset($readpost)){foreach ($readpost as $post): ?>
                 <div class="row">
                     <div class="card-panel">
                         <div class="row">
@@ -41,7 +45,7 @@
                         <?= $post->getPostDesc();?>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endforeach;} ?>
             </div>
         </div>
     </div>
