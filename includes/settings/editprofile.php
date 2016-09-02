@@ -1,5 +1,5 @@
 <div class="row">
-    <form class="col s6 offset-s3 card-panel" action="" method="post">
+    <form class="col s12 l6 offset-l3 card-panel" action="" method="post">
         <div class="row center">
            <br>
             <div class="input-field col s12">

@@ -7,9 +7,9 @@
 
 <body>
     <?php require('includes/nav.php'); ?>
-        <div class='container'>
+        <div class='.container'>
             <div class="row">
-                <div class="col l6 s12 offset-l3">
+                <div class="col l4 s12 offset-l4">
                    
                     <?php require('includes/createpost.php');
                     foreach ($readpost as $post): ?>

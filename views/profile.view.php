@@ -7,9 +7,9 @@
 
 <body>
     <?php require('includes/nav.php'); ?>
-    <div class='container'>
+    <div class='.container'>
         <div class="row">
-            <div class="col l3 s12 offset-l1 profile">
+            <div class="col l2 s12 offset-l2 ">
                <div class="row">
                    <div class="card"><h4><?= $user->getUsername();?></h4></div>
                </div>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col l6 s12">
+            <div class="col l4 s12">
                 <?php require('includes/createpost.php');
                 if(isset($readpost)){foreach ($readpost as $post): ?>
                 <div class="row">
