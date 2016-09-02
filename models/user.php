@@ -46,4 +46,17 @@ class User {
         $this->password = $password;
         $this->email = $email;    
     }
+    
+    public function setRead($userid, $username, $firstname, $lastname, $email, $isadmin, $isnew, $bio, $password){
+        $this->userid = $userid;
+        $this->username = $username;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->isadmin = $isadmin;
+        $this->isnew = $isnew;
+        $this->bio = $bio;
+        $this->password = $password;
+        
+    }
 }
