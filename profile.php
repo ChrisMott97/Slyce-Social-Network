@@ -13,11 +13,10 @@ if(isset($_POST['submit'])){
     header('Refresh:0');
 }
 
-$posts = $query->allPosts();
+$posts = $query->userPosts($user->getUserID());
 
 $i=0;
 foreach ($posts as $post){
-    //$readpost[$i] = $post;
     $readpost[$i] = new Post(null, $query);
     $readpost[$i]->setRead(
         $post['postid'],

@@ -2,7 +2,7 @@
 
 <head>
     <?php require('includes/header.php'); ?>
-    <title>Slyce Public Wall</title>
+        <title>Slyce Public Wall</title>
 </head>
 
 <body>
@@ -10,8 +10,10 @@
         <div class='container'>
             <div class="row">
                 <div class="col l6 s12 offset-l3">
+                   
                     <?php require('includes/createpost.php');
                     foreach ($readpost as $post): ?>
+                       
                         <div class="row">
                             <div class="card-panel">
                                 <div class="row">
@@ -22,13 +24,15 @@
                                         <?= $post->getPostDate();?>
                                     </div>
                                 </div>
-                            <div class="divider row"></div>
-                            <?= $post->getPostDesc();?>
+                                <div class="divider row"></div>
+                                <?= $post->getPostDesc();?>
+                            </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                        
+                    <?php endforeach; ?>
+                    
+                </div>
             </div>
-        </div>
         </div>
         <?php require('includes/footer.php'); ?>
 </body>

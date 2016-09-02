@@ -4,7 +4,7 @@ require 'includes/setup.php';
 
 if(isset($_POST['submit'])){
     $auth->login($_POST['email'], $_POST['password']);
-    header("Refresh:0");
+    //header("Refresh:0");
 }
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){

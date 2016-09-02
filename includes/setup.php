@@ -12,6 +12,9 @@ require './models/user.php';
 
 require './models/post.php';
 
+require './models/validation.php';
+$check = new Validation($query);
+
 require './models/auth.php';
 $auth = new Auth($query); //initial authentication - requires the query builder
 

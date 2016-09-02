@@ -40,8 +40,29 @@ class QueryBuilder
         return $stmt->fetch();
     }
     
+    public function checkUsername($username){
+        $stmt = $this->db->prepare('SELECT * FROM users WHERE username = :username');
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    
+    public function checkEmail($email){
+        $stmt = $this->db->prepare('SELECT * FROM users WHERE email = :email');
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    
     public function allPosts(){
         $stmt = $this->db->prepare('SELECT * FROM posts ORDER BY postid DESC');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    
+    public function userPosts($userid){
+        $stmt = $this->db->prepare('SELECT * FROM posts WHERE userid = :userid ORDER BY postid DESC');
+        $stmt->bindParam(':userid', $userid);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -55,6 +76,18 @@ class QueryBuilder
         $stmt->bindParam(':postdesc', $post->getPostDesc());
         $stmt->bindParam(':canexpand', $post->getCanExpand());
         $stmt->bindParam(':postdate', $post->getPostDate());
+        $stmt->execute();
+    }
+    
+    public function pushUser($user){
+        $stmt = $this->db->prepare('INSERT INTO 
+        users (firstname, lastname, username, password, email) 
+        VALUES(:firstname, :lastname, :username, :password, :email)');
+        $stmt->bindParam(':firstname', $user->getFirstname());
+        $stmt->bindParam(':lastname', $user->getLastname());
+        $stmt->bindParam(':username', $user->getUsername());
+        $stmt->bindParam(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT));
+        $stmt->bindParam(':email', $user->getEmail());
         $stmt->execute();
     }
     
