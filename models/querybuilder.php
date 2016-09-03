@@ -8,6 +8,55 @@ class QueryBuilder
         $this->db = $db;
     }
     
+    public function create($table, $properties, $values){
+        
+        foreach($properties as $property){
+            $proplist = $proplist.$property.',';
+        }
+        $proplist = trim($proplist, ",");
+        
+        foreach($properties as $property){
+            $bindlist = ':'.$bindlist.$property.',';
+        }
+        $bindlist = trim($bindlist, ",");
+        
+        foreach($values as $value){
+            $valuelist = $valuelist.$value.',';
+        }
+        $valuelist = trim($valuelist, ",");
+        
+        $propvalue = array_combine($properties, $values);
+        
+        $stmt = $this->db->prepare("INSERT INTO $table ($proplist) VALUES ($bindlist)");
+        foreach($propvalue as $property => $value){
+            $stmt->bindParam(':'.$property, $value);
+        }
+        $stmt->execute();
+    }
+    
+    public function read($field, $table, $relation, $relvalue){
+        $stmt = $this->db->prepare("SELECT $field FROM $table WHERE $relation = :$relation");
+        $stmt->bindParam(":$relation", $relvalue);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row[$field];
+    }
+    
+    public function update($table, $property, $propvalue, $relation, $relvalue){
+        $stmt = $this->db->prepare("UPDATE $table SET $property = :$property WHERE $relation = :$relation");
+        $stmt->bindParam(":$property", $propvalue);
+        $stmt->bindParam(":$relation", $relvalue);
+        $stmt->execute();
+    }
+    
+    public function delete($table, $relation, $relvalue){
+        $stmt = $this->db->prepare("DELETE FROM $table WHERE $relation = :$relation");
+        $stmt->bindParam(":$relation", $relvalue);
+        $stmt->execute();
+    }
+    
+    
+    
     public function fetchPassword($email){
         $stmt = $this->db->prepare('SELECT password FROM users WHERE email = :email');
         $stmt->bindParam(':email', $email);
