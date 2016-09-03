@@ -10,7 +10,7 @@
     <div class='.container'>
         <div class="row">
             <div class="col l2 s12 offset-l2">
-                <div class="row">
+                <div class="row center">
                    <div class="card"><h4><?= $viewuser->getUsername();?></h4></div>
                </div>
                 <div class="row">
